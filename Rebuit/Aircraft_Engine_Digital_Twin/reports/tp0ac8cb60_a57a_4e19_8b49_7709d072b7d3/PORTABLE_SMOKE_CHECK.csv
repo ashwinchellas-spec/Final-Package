@@ -1,0 +1,14 @@
+Engine_ID,Engine,Available,Note
+1,J79-GE-17A,1,Experimental simulator approximation; local error is not guaranteed
+2,SNECMA Atar 9C,1,Experimental simulator approximation; local error is not guaranteed
+3,R-25-300,1,Experimental simulator approximation; local error is not guaranteed
+4,CFM56-5B4,1,Experimental simulator approximation; local error is not guaranteed
+5,CF6-80C2B1F,1,Experimental simulator approximation; local error is not guaranteed
+6,F100-PW-229,1,Experimental simulator approximation; local error is not guaranteed
+7,SNECMA M88-2,1,Experimental simulator approximation; local error is not guaranteed
+8,GTX-35VS Kaveri,1,Experimental simulator approximation; local error is not guaranteed
+9,PT6A-67D,1,Experimental simulator approximation; local error is not guaranteed
+10,PW127G,1,Experimental simulator approximation; local error is not guaranteed
+11,AE 2100D3,1,Experimental simulator approximation; local error is not guaranteed
+12,Lycoming O-360-A1A,1,Experimental simulator approximation; local error is not guaranteed
+13,Continental IO-550-B,1,Experimental simulator approximation; local error is not guaranteed

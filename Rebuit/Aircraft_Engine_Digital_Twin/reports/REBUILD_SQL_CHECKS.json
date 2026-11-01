@@ -1,0 +1,62 @@
+{
+  "timestamp_utc": "2026-09-17T12:14:48.447498+00:00",
+  "scope": "Python SQLite regression and delivered-data checks; NOT MATLAB execution",
+  "checks": [
+    {
+      "name": "Explicit transaction executes complete schema",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit transaction seeds core catalogue",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit transaction repeats core seed without missing-transaction error",
+      "status": "PASS"
+    },
+    {
+      "name": "Injected failure rolls back all optional-piston additions",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit transaction enables piston engines",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit transaction repeats piston extension",
+      "status": "PASS"
+    },
+    {
+      "name": "Fresh extended database contains 13 engines",
+      "status": "PASS"
+    },
+    {
+      "name": "Delivered database integrity",
+      "status": "PASS"
+    },
+    {
+      "name": "Delivered database foreign keys",
+      "status": "PASS"
+    },
+    {
+      "name": "218 parameter provenance records",
+      "status": "PASS"
+    },
+    {
+      "name": "No fabricated simulation results shipped",
+      "status": "PASS"
+    },
+    {
+      "name": "No fabricated verified references",
+      "status": "PASS"
+    },
+    {
+      "name": "Every numerical model input has a matching source record and unit",
+      "status": "PASS"
+    },
+    {
+      "name": "Catalogue CSV contains all 13 engines",
+      "status": "PASS"
+    }
+  ]
+}

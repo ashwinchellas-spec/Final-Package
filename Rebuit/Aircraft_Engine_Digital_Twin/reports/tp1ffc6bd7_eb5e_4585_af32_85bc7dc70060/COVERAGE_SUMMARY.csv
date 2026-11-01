@@ -1,0 +1,14 @@
+Engine_ID,Engine,Status,EmptyTrainingCells,MinTrainingPerCell,FreshAccepted,FreshRejected,InvalidPredictions,FailedTargetChecks,Note
+1,J79-GE-17A,REVIEW_REQUIRED,0,2,738,0,0,3,Frozen-model test; no real-engine validation
+2,SNECMA Atar 9C,REVIEW_REQUIRED,0,2,738,0,0,1,Frozen-model test; no real-engine validation
+3,R-25-300,REVIEW_REQUIRED,0,3,738,0,0,2,Frozen-model test; no real-engine validation
+4,CFM56-5B4,MEETS_CURRENT_SIMULATOR_CRITERIA,0,2,738,0,0,0,Frozen-model test; no real-engine validation
+5,CF6-80C2B1F,MEETS_CURRENT_SIMULATOR_CRITERIA,0,2,738,0,0,0,Frozen-model test; no real-engine validation
+6,F100-PW-229,REVIEW_REQUIRED,0,2,738,0,0,1,Frozen-model test; no real-engine validation
+7,SNECMA M88-2,MEETS_CURRENT_SIMULATOR_CRITERIA,0,3,738,0,0,0,Frozen-model test; no real-engine validation
+8,,ERROR,NaN,NaN,NaN,NaN,NaN,NaN,Unrecognized table variable name 'Split'.
+9,PT6A-67D,MEETS_CURRENT_SIMULATOR_CRITERIA,0,2,738,0,0,0,Frozen-model test; no real-engine validation
+10,PW127G,MEETS_CURRENT_SIMULATOR_CRITERIA,0,2,738,0,0,0,Frozen-model test; no real-engine validation
+11,AE 2100D3,MEETS_CURRENT_SIMULATOR_CRITERIA,0,1,738,0,0,0,Frozen-model test; no real-engine validation
+12,Lycoming O-360-A1A,CONSTANT_TARGET_R2_REVIEW,0,1,738,0,0,2,Frozen-model test; no real-engine validation
+13,Continental IO-550-B,CONSTANT_TARGET_R2_REVIEW,0,1,738,0,0,2,Frozen-model test; no real-engine validation

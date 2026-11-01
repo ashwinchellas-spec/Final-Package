@@ -1,0 +1,4 @@
+Target,R2,RMSE,MAE,MAPE_Percent,RelativeRMSE,RelativeMAE,MAPE_Count,MeetsSimulatorCriteriaOnly,Engine_ID,Engine,Family,Label
+ShaftPower_kW,1,2.47935563165255e-07,1.80640758669347e-07,2.8830111604331e-07,3.62446290998595e-09,2.64070922892323e-09,109,1,12,Lycoming O-360-A1A,Poly,EXPERIMENTAL: surrogate of unvalidated simulation; not manufacturer performance.
+FuelFlow_kgs,1,2.03559574799364e-11,1.4830932441307e-11,2.88301114384708e-07,3.62446289449568e-09,2.64070920649502e-09,109,1,12,Lycoming O-360-A1A,Poly,EXPERIMENTAL: surrogate of unvalidated simulation; not manufacturer performance.
+BSFC_kgkWh,NaN,3.23420725660714e-17,1.88432348216196e-17,6.37529444798131e-15,1.09424012181875e-16,6.37529444798131e-17,109,0,12,Lycoming O-360-A1A,Poly,EXPERIMENTAL: surrogate of unvalidated simulation; not manufacturer performance.

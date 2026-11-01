@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,Thrust_N,FuelFlow_kgs,TSFC_kgNs,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0,0.5,26876.5490370903,0.618587349847179,2.30509831873184e-05,1,Experimental simulator approximation; local error is not guaranteed,7,SNECMA M88-2,EXPERIMENTAL_SIMULATOR_ONLY
+0,0.3,1,55175.979227585,1.6384438622066,2.96967893734313e-05,1,Experimental simulator approximation; local error is not guaranteed,7,SNECMA M88-2,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0,0.5,22047.2130526807,0.508514343978415,2.30366100767894e-05,1,Experimental simulator approximation; local error is not guaranteed,7,SNECMA M88-2,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0.3,1,45198.2507202751,1.35418050233663,2.99702853832668e-05,1,Experimental simulator approximation; local error is not guaranteed,7,SNECMA M88-2,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0,0.5,17644.620059441,0.405610181319503,2.30489099010449e-05,1,Experimental simulator approximation; local error is not guaranteed,7,SNECMA M88-2,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0.3,1,36516.9040423984,1.10416457238008,3.02622067797529e-05,1,Experimental simulator approximation; local error is not guaranteed,7,SNECMA M88-2,EXPERIMENTAL_SIMULATOR_ONLY

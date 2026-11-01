@@ -1,0 +1,86 @@
+J79 FROZEN CHEBYSHEV REGRESSION -- TEST ONLY, NO TRAINING ON YOUR LAPTOP
+
+1. Extract this ZIP beside your other add-on folders.
+2. Set MATLAB Current Folder to ABACUS_J79_CHEB.
+3. Run:
+       checked = RUN_J79_CHEB_CHECK;
+4. Select boundary_model.mat from the latest failed J79 retraining folder:
+   Aircraft_Engine_Digital_Twin/reports/
+   tp576b3ee3_f5b7_4064_a640_3e1db26ce4c3/engine_1
+   Keep the original training.csv and validation.csv beside that MAT file.
+5. This evaluates 1,060 fresh points plus 8 separately labelled seen corners.
+6. Upload J79_FINAL_METRICS.csv from the new printed output folder.
+
+What changed
+The supplied frozen_cheb_model.mat contains an ACTUALLY FITTED regression model,
+trained here in Python on your 2,896-row training.csv. MATLAB does not refit it.
+It uses a total-degree-11 Chebyshev polynomial basis with 364 terms per output,
+scaled inputs on [-1,1], ridge lambda 1e-5 and weight 4 for eight corner rows.
+The primary targets are thrust and fuel. TSFC is predicted fuel / predicted thrust.
+Other training rows have weight 1. Target means and standard deviations come
+only from the training set. Validation and prior test rows are not fitted.
+
+Selection details
+32 candidates: degrees 5/7/9/11; corner weights 1/4/16/64; ridge 1e-8/1e-5.
+Candidates first had to meet existing error criteria on the seen training corners.
+Among eligible candidates, selection minimized the WORST target/cohort normalized
+validation RMSE on your 1,060 validation rows. The selected value is 0.22083%.
+Corner checks are a training-fit constraint, never independent test evidence.
+MODEL_SELECTION.csv preserves all choices. OFFLINE_DIAGNOSTICS.csv separates
+validation, previously inspected test diagnostics and training-corner checks.
+The old test was already inspected, so it is NOT a final independent test here.
+
+Why this was investigated
+An independent reproduction of the existing J79 equations matched all 1,060
+supplied test thrust values to maximum relative discrepancy about 1.54e-14.
+At sea level, Mach 2 and full throttle, the existing simulator gives:
+  gross nozzle thrust 283,917.393 N
+  ram drag           282,708.018 N
+  net thrust           1,209.375 N
+At Mach 1.93216 the net thrust is 15,435.937 N. The net thrust changes steeply
+near the high-Mach/high-throttle low-altitude corner and TSFC becomes sensitive.
+The sampled nozzle remains choked; this is not a nozzle-state switch at those
+points. This analysis found a difficult approximation region, not proof of a
+coding defect or proof that this behaviour represents the real J79 engine.
+No simulation equations, parameters, database values or physical limits are changed.
+
+Fresh evaluation protocol
+The fitted model is frozen before the new MATLAB run. Seed 41092027 generates
+640 interior, 300 face and 120 edge points; all three inputs vary. The script
+checks exact non-overlap with every supplied training, validation and old-test
+input. Eight already-seen corners are checked separately and explicitly labelled.
+Numerical positivity/finite checks and model criteria cannot be bypassed by
+silently dropping invalid predictions. Rejected simulator points remain visible.
+Repeated runs use the SAME points, not additional independent experiments.
+If further tuning uses this new test, another untouched final test is needed.
+
+Integrity and provenance
+SHA-256 checks ensure your local training and validation CSVs match the actual
+files used for fitting. Do not open and resave those source CSVs before this run.
+The existing MAT supplies the project path and source fingerprint; the script
+checks it against the current loaded engine. Bounds must match as well.
+A numerical interchange check compares MATLAB polynomial recurrence predictions
+with saved Python predictions before any evaluation begins. The eventual saved
+j79_cheb_model.mat retains the coefficients, metrics and fingerprint together.
+Existing model files, validation gates and database records are unchanged.
+
+Using the tested model
+Only if the returned status is MEETS_TESTED_SIMULATOR_CRITERIA:
+    prediction = PREDICT_J79_CHEB(checked.ModelFile,[3000,0.4,0.8]);
+    disp(prediction);
+Use this add-on folder as Current Folder. Do not use the earlier predictor for
+this new bundle format. Operational remains false: this is only a surrogate of
+an unvalidated simulator. The helper performs physics validity checks, so no
+end-to-end speedup is claimed. All earlier real-engine validation limitations
+remain. The other 12 engine models are not modified.
+
+Verification and reproducibility
+Offline fitting, old-output numerical reproduction, validation analysis and an
+independent Chebyshev recurrence check were run here. Three MATLAB files passed
+MISS_HIT syntax/lint. MATLAB runtime is unavailable here: this NEW fresh evaluation
+has not run. No MATLAB acceptance result is prefilled.
+REPRODUCE_FIT.py reproduces coefficient selection from your CSVs using numpy/scipy:
+  python REPRODUCE_FIT.py --engine-folder PATH_TO_engine_1 --output-folder NEW_PATH
+This optional source is for audit; you do not need Python to use the MATLAB files.
+The script saves coefficients/scales in an NPZ and selection diagnostics; the
+packaged MAT contains the same selected coefficients plus integrity/check data.

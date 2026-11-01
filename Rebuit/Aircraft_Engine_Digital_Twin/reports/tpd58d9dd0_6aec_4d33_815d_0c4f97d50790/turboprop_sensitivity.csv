@@ -1,0 +1,31 @@
+Engine_ID,Engine,Parameter,InputChangePercent,TrialValue,PredictedPower_kW,PowerChangePercent,Valid,Warnings
+9,PT6A-67D,MassFlow_kgs,-2,5.39,1170.20283998025,-1.99999999999999,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,MassFlow_kgs,2,5.61,1217.96622120394,2,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,T_t4_K,-2,1176,1135.0777421661,-4.94159223357007,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,T_t4_K,2,1224,1253.12386407895,4.94431775760276,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,OPR,-2,9.31,1193.79708550067,-0.0240724240255785,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,OPR,2,9.69,1194.15198262983,0.00564884947467093,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,Eta_power_turbine,-2,0.882,1170.20283998025,-2.00000000000001,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,Eta_power_turbine,2,0.918,1217.96622120394,2,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,PowerTurbine_BackPressure_Ratio,-2,1.029,1214.67450022674,1.7243309922484,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+9,PT6A-67D,PowerTurbine_BackPressure_Ratio,2,1.071,1173.80189617265,-1.69859284663756,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,MassFlow_kgs,-2,15.68,4031.90759319672,-2.00000000000001,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,MassFlow_kgs,2,16.32,4196.4752500619,2,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,T_t4_K,-2,1274,3894.45721870686,-5.34088428086402,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,T_t4_K,2,1326,4333.9947074352,5.3425634172082,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,OPR,-2,15.68,4125.59735519917,0.27723390579002,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,OPR,2,16.32,4102.33523597623,-0.288177783628296,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,Eta_power_turbine,-2,0.882,4031.90759319672,-2.00000000000005,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,Eta_power_turbine,2,0.918,4196.4752500619,2,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,PowerTurbine_BackPressure_Ratio,-2,1.029,4171.82543432718,1.4008588028956,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+10,PW127G,PowerTurbine_BackPressure_Ratio,2,1.071,4057.41768031647,-1.37994894973449,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,MassFlow_kgs,-2,25.48,7196.00782508034,-1.99999999999999,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,MassFlow_kgs,2,26.52,7489.72243018566,2,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,T_t4_K,-2,1323,6968.0505884203,-5.10447260977437,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,T_t4_K,2,1377,7717.85269744561,5.10682905507061,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,OPR,-2,16.268,7359.64052042344,0.2284584082487,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,OPR,2,16.932,7325.30726864382,-0.239114551118558,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,Eta_power_turbine,-2,0.882,7196.00782508034,-2.00000000000001,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,Eta_power_turbine,2,0.918,7489.72243018565,1.99999999999996,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,PowerTurbine_BackPressure_Ratio,-2,1.029,7439.24464039114,1.31256003049058,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.
+11,AE 2100D3,PowerTurbine_BackPressure_Ratio,2,1.071,7247.92421914771,-1.2929681648108,1,Estimated/assumed cycle parameters; real engine accuracy has not been established.

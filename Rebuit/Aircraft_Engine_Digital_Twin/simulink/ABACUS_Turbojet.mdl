@@ -1,0 +1,47 @@
+Model {
+  Name "ABACUS_Turbojet"
+  Version 8.0
+  SavedCharacterEncoding "UTF-8"
+  Solver "FixedStepDiscrete"
+  SolverType "Fixed-step"
+  FixedStep "1"
+  StopTime "0"
+  InitFcn "setup_project; abacusPaths=project_paths; ABACUS_DATABASE=abacusPaths.database_file;"
+  System {
+    Name "ABACUS_Turbojet"
+    Location [50, 50, 900, 500]
+    Block {
+      BlockType Constant
+      Name "OperatingPoint"
+      Position [50, 100, 170, 150]
+      Value "[1;0;0;1]"
+    }
+    Block {
+      BlockType S-Function
+      Name "SteadyStateEngine"
+      Position [250, 80, 460, 170]
+      FunctionName "abacus_sfun"
+      Parameters "ABACUS_DATABASE"
+      SFunctionModules "''"
+    }
+    Block {
+      BlockType ToWorkspace
+      Name "Result"
+      Position [560, 100, 700, 150]
+      VariableName "abacus_output"
+      SaveFormat "Array"
+    }
+    Line {
+      SrcBlock "OperatingPoint"
+      SrcPort 1
+      DstBlock "SteadyStateEngine"
+      DstPort 1
+    }
+    Line {
+      SrcBlock "SteadyStateEngine"
+      SrcPort 1
+      DstBlock "Result"
+      DstPort 1
+    }
+  }
+}

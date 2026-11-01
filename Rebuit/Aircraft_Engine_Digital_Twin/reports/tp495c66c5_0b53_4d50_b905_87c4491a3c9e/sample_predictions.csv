@@ -1,0 +1,4 @@
+Altitude_m,Mach,Throttle,Thrust_N,FuelFlow_kgs,TSFC_kgNs,PredictionAvailable,Note,Method
+0,0.3,1,52643.6470914467,1.51371843416998,2.87540570952563e-05,1,Experimental prediction only; local accuracy is not guaranteed,PredictedFuelDividedByPredictedThrust
+5000,0.3,1,32524.2225718771,0.939342156540296,2.88813100594301e-05,1,Experimental prediction only; local accuracy is not guaranteed,PredictedFuelDividedByPredictedThrust
+10000,0.3,1,18613.5568551251,0.541784625817305,2.91069906753545e-05,1,Experimental prediction only; local accuracy is not guaranteed,PredictedFuelDividedByPredictedThrust

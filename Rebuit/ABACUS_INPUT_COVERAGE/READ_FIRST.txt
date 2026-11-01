@@ -1,0 +1,74 @@
+THREE-INPUT COVERAGE STUDY
+
+1. Extract this ZIP beside your other add-on folders.
+2. Set MATLAB Current Folder to ABACUS_INPUT_COVERAGE.
+3. Run:
+       coverage = RUN_INPUT_COVERAGE_STUDY;
+4. First selection: EXPERIMENTAL_RUN.mat in your original 13-engine training folder:
+   Aircraft_Engine_Digital_Twin/reports/tp7e47faac_5d6d_4dd6_998e_762661399df7
+5. Second selection: j79_reviewed_model.mat in your integrated J79 folder:
+   Aircraft_Engine_Digital_Twin/reports/tp495c66c5_0b53_4d50_b905_87c4491a3c9e
+6. Wait for all engines. The script reports progress and saves after each engine.
+7. Upload COVERAGE_SUMMARY.csv and COVERAGE_METRICS.csv from the printed output folder.
+
+What this answers
+The original ML training varied altitude, Mach and throttle simultaneously.
+This study examines whether those samples covered their JOINT input space well
+and whether the fitted models still work near the limits of that space.
+
+For each engine, the saved model's input box is divided into 4 altitude bands x
+4 Mach bands x 4 throttle bands = 64 regions. We count ORIGINAL TRAINING rows
+in each region (not validation/test rows). Then we generate 10 new random points
+in every region = 640 interior tests. A 5x5x5 grid shell contributes 98 separate
+face/edge/corner tests, including all eight corners. Total: 738 per engine,
+9,594 candidate simulations if all 13 model bundles are available.
+
+All three inputs vary jointly. No afterburner is used. The bounds remain the
+saved training bounds: throttle 0.5 to 1, altitude up to the lesser of 15 km and
+the engine's model limit, Mach up to the lesser of 2 and its model limit. These
+are model assumptions, not independently certified operational envelopes.
+Idle/throttle below 0.5 and out-of-box extrapolation are not tested or enabled.
+
+Interior and boundary errors are reported separately for each of three targets.
+They should not be pooled: boundary points deliberately over-represent the edge
+of the domain and are not a probability-weighted flight mission distribution.
+Invalid simulator points are retained in coverage_points.csv with warnings.
+Invalid/nonfinite/negative predictions on simulator-accepted points invalidate
+that target group's metrics rather than being silently dropped from them.
+All errors refer to synthetic physics output, not manufacturer measurements.
+
+Status interpretation
+MEETS_CURRENT_SIMULATOR_CRITERIA: all six target/group checks pass the existing
+R2 >= .95, normalized RMSE < .02, normalized MAE < .015, MAPE < 5% criteria.
+REVIEW_REQUIRED: inspect per-target metrics; this is not a certified model.
+CONSTANT_TARGET_R2_REVIEW: absolute/relative error limits pass, but R2 is undefined
+for a constant target. Original strict flags are preserved as false. This may
+occur for piston BSFC and is not silently relabelled as a strict pass.
+ERROR: see that engine's ERROR.txt; the other engines continue.
+
+Files
+- COVERAGE_SUMMARY.csv and COVERAGE_METRICS.csv: combined results.
+- engine_N/coverage_points.csv: every condition, simulation, prediction and status.
+- engine_N/joint_input_cells.csv: original training counts and local test error.
+  Bin numbers 1..4 mean ascending quartiles of each saved input range.
+  Local error is the highest of the three target normalized RMSE values, in %;
+  based on at most 10 scored points per cell, so it is diagnostic, not a guarantee.
+  FreshScoredCount discloses omissions due to simulator/prediction invalidity.
+- engine_N/input_coverage.png: original input cloud beside the new test design.
+- engine_N/coverage_snapshot.mat: exact frozen bundle, bounds, source path and metrics.
+
+Next decision
+This evaluates existing frozen models, including reviewed J79 TSFC. It does not
+retrain or modify any model, database, existing result or validation requirement.
+If a region fails, these diagnostics can guide additional development sampling.
+After any tuning informed by this study, freeze the revision and use another
+untouched evaluation set; these inspected points are no longer a final test.
+Repeated runs use the SAME seed/design, not independent new experiments.
+Filling all 64 bins is useful evidence of coverage, not proof of sufficient data.
+Unresolved PW127G/AE 2100D3 physics errors remain regardless of surrogate scores.
+
+Verification
+The MATLAB source passed MISS_HIT syntax/lint checks. Sampling design was checked
+independently for cell coverage, bounds, uniqueness and inclusion of all corners.
+MATLAB is unavailable in the authoring environment, so execution and resulting
+accuracy/plots must be verified on your laptop. No results are pre-generated.

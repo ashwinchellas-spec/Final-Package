@@ -1,0 +1,14 @@
+Engine_ID,Designation,Manufacturer,Type_Name,ValidPoints,InvalidPoints
+1,J79-GE-17A,General Electric Aviation,Turbojet,16,0
+2,SNECMA Atar 9C,Safran Aircraft Engines (SNECMA),Turbojet,16,0
+3,R-25-300,Tumansky / Soviet design family,Turbojet,16,0
+4,CFM56-5B4,CFM International,Turbofan_HighBPR,14,2
+5,CF6-80C2B1F,General Electric Aviation,Turbofan_HighBPR,14,2
+6,F100-PW-229,Pratt & Whitney,Turbofan_LowBPR,16,0
+7,SNECMA M88-2,Safran Aircraft Engines (SNECMA),Turbofan_LowBPR,16,0
+8,GTX-35VS Kaveri,GTRE / DRDO,Turbofan_LowBPR,16,0
+9,PT6A-67D,Pratt & Whitney Canada,Turboprop,10,6
+10,PW127G,Pratt & Whitney Canada,Turboprop,10,6
+11,AE 2100D3,Rolls-Royce,Turboprop,10,6
+12,Lycoming O-360-A1A,Lycoming,Piston,6,10
+13,Continental IO-550-B,Continental,Piston,6,10

@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "2026-09-17T12:15:35.023525+00:00",
+  "tool": "MISS_HIT Lint",
+  "language_mode": "MATLAB 2022a parser; target MATLAB R2023b or newer",
+  "files_analyzed": 98,
+  "status": "PASS",
+  "exit_code": 0,
+  "scope": "Source parsing and lint only; MATLAB/toolbox execution NOT performed."
+}

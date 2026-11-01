@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,Thrust_N,FuelFlow_kgs,TSFC_kgNs,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0.3,0.5,13155.3406051445,0.490784825367802,3.73068885176471e-05,1,Experimental simulator approximation; local error is not guaranteed,2,SNECMA Atar 9C,EXPERIMENTAL_BOUNDARY_REVISION
+0,0.3,1,36875.5723744416,1.2396499910949,3.36171050718146e-05,1,Experimental simulator approximation; local error is not guaranteed,2,SNECMA Atar 9C,EXPERIMENTAL_BOUNDARY_REVISION
+2000,0.3,0.5,10999.7166927252,0.40050699260993,3.64106643650933e-05,1,Experimental simulator approximation; local error is not guaranteed,2,SNECMA Atar 9C,EXPERIMENTAL_BOUNDARY_REVISION
+2000,0.3,1,30581.6664203251,1.02349084666485,3.34674648725033e-05,1,Experimental simulator approximation; local error is not guaranteed,2,SNECMA Atar 9C,EXPERIMENTAL_BOUNDARY_REVISION
+4000,0.3,0.5,9078.40376670692,0.323543056152934,3.56387603445727e-05,1,Experimental simulator approximation; local error is not guaranteed,2,SNECMA Atar 9C,EXPERIMENTAL_BOUNDARY_REVISION
+4000,0.3,1,25050.8482448696,0.836395429252035,3.33879085081811e-05,1,Experimental simulator approximation; local error is not guaranteed,2,SNECMA Atar 9C,EXPERIMENTAL_BOUNDARY_REVISION

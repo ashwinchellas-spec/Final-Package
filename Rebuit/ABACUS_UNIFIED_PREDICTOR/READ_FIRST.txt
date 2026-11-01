@@ -1,0 +1,87 @@
+UNIFIED ENGINE PREDICTOR
+
+This add-on consolidates the models already tested on your laptop. It does not
+retrain, overwrite, or modify the database.
+
+Models selected
+- J79: tested Chebyshev revision from the J79 final check.
+- Atar 9C, R-25-300 and F100-PW-229: targeted boundary revisions.
+- CFM56, CF6, M88, Kaveri, PT6A, PW127G, AE 2100D3 and the two piston engines:
+  original experimental models from the 13-engine run.
+
+Setup
+
+1. Extract this ZIP and set MATLAB Current Folder to this folder.
+2. Run:
+
+       registry = BUILD_UNIFIED_REGISTRY;
+
+3. Select the three files in order:
+
+   a. `EXPERIMENTAL_RUN.mat` from the original 13-engine run:
+      `reports/tp7e47faac_5d6d_4dd6_998e_762661399df7`
+
+   b. `boundary_retrain_run.mat` from the targeted retraining run:
+      `reports/tp576b3ee3_f5b7_4064_a640_3e1db26ce4c3`
+
+   c. `j79_cheb_model.mat` from the successful J79 check:
+      `reports/tpeb3b145d_2787_4652_be91_516b9715a11b`
+
+The registry checks that all 13 files exist and that each file belongs to the
+expected engine. It saves `unified_registry.mat` in a new reports folder.
+
+Query any engine with one command:
+
+       prediction = PREDICT_UNIFIED_ENGINE(registry, 1, [3000, 0.4, 0.8]);
+
+The three inputs are geometric altitude in metres, Mach number and throttle.
+Multiple rows can be supplied at once:
+
+       conditions = [0, 0.3, 1; 5000, 0.3, 1; 10000, 0.3, 1];
+       prediction = PREDICT_UNIFIED_ENGINE(registry, 10, conditions);
+
+To evaluate all 13 engines on a common grid (5 altitudes x 4 Mach values x
+3 throttle values), run:
+
+       matrix = RUN_UNIFIED_MATRIX(registry);
+
+This writes one CSV per engine and `UNIFIED_SUMMARY.csv` under a new reports
+folder. To use a denser grid, for example 9 x 7 x 6, run:
+
+       matrix = RUN_UNIFIED_MATRIX(registry, [9, 7, 6]);
+
+The output includes thrust or shaft power according to architecture, fuel flow,
+TSFC or BSFC, engine ID, model mode, validity and an explanatory note. For J79
+and the three boundary-revised jets, TSFC is derived as predicted fuel flow
+divided by predicted thrust. The other saved models retain their original target
+contract.
+
+If MATLAB is restarted, load the registry saved by the first command:
+
+       saved = load('FULL_PATH_TO_unified_registry.mat', 'registry');
+       registry = saved.registry;
+
+Then call `PREDICT_UNIFIED_ENGINE` from this add-on folder.
+
+Interpretation
+
+This is an experimental simulator-surrogate workflow. A returned prediction is
+not a manufacturer measurement or certification result. The helper checks the
+current simulator fingerprint and validity at the requested condition, but that
+does not guarantee surrogate accuracy at every local point. Stay inside the
+saved model bounds; out-of-range conditions are rejected.
+
+Known limitations remain: throttle below 0.5 is not in the trained model range,
+PW127G and AE 2100D3 physics/input discrepancies remain unresolved, and the
+catalogue/reference data are not uniformly manufacturer-verified. Use the
+physics simulator for conditions that need an auditable first-principles result.
+
+Recommended next stage
+
+After building the registry, run `RUN_UNIFIED_MATRIX` and use the per-engine
+CSV files to prepare the final altitude/Mach/throttle report. Then perform a
+separate real-engine reference validation study; do not use the ML error against
+synthetic simulator output as manufacturer validation.
+
+The MATLAB source passed syntax/lint checks. MATLAB execution of this new
+registry/predictor package must be performed on your laptop.

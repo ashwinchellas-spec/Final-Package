@@ -1,0 +1,15 @@
+{
+  "scope": "SQL update checked on a disposable database; no MATLAB execution",
+  "checks_passed": [
+    "reference insert idempotence",
+    "existing reference records preserved",
+    "rated parameter and provenance agree",
+    "overall confidence remains Low",
+    "SQLite integrity",
+    "foreign keys"
+  ],
+  "source_review": {
+    "PW127G": "EASA IM.E.041 Issue 07 pages 10 and 17, read and ratings table visually checked",
+    "AE2100D3": "Unresolved: reviewed EASA document excludes D3; current manufacturer sheet has inconsistent power-unit pairing"
+  }
+}

@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,Thrust_N,FuelFlow_kgs,TSFC_kgNs,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0,0.5,31653.4187034882,0.751229760253944,2.3733836754219e-05,1,Experimental simulator approximation; local error is not guaranteed,8,GTX-35VS Kaveri,EXPERIMENTAL_SIMULATOR_ONLY
+0,0.3,1,65672.2319525066,1.95516536602101,2.98178919170074e-05,1,Experimental simulator approximation; local error is not guaranteed,8,GTX-35VS Kaveri,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0,0.5,26137.2159638243,0.619436180042428,2.36181456796497e-05,1,Experimental simulator approximation; local error is not guaranteed,8,GTX-35VS Kaveri,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0.3,1,54114.274303426,1.62226294436998,3.00001421970682e-05,1,Experimental simulator approximation; local error is not guaranteed,8,GTX-35VS Kaveri,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0,0.5,20917.872271427,0.492763060140452,2.35840140302628e-05,1,Experimental simulator approximation; local error is not guaranteed,8,GTX-35VS Kaveri,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0.3,1,43856.7925365061,1.32444492215182,3.02393835821315e-05,1,Experimental simulator approximation; local error is not guaranteed,8,GTX-35VS Kaveri,EXPERIMENTAL_SIMULATOR_ONLY

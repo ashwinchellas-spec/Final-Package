@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,Thrust_N,FuelFlow_kgs,TSFC_kgNs,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0,0.5,44170.7125813135,0.95640751944397,2.16525263812153e-05,1,Experimental simulator approximation; local error is not guaranteed,6,F100-PW-229,EXPERIMENTAL_BOUNDARY_REVISION
+0,0.3,1,87684.4713035194,2.41752475106583,2.7570728489627e-05,1,Experimental simulator approximation; local error is not guaranteed,6,F100-PW-229,EXPERIMENTAL_BOUNDARY_REVISION
+2000,0,0.5,36271.1350446783,0.783070722962278,2.15893636082163e-05,1,Experimental simulator approximation; local error is not guaranteed,6,F100-PW-229,EXPERIMENTAL_BOUNDARY_REVISION
+2000,0.3,1,72173.3217625854,2.00949366652195,2.78426102255927e-05,1,Experimental simulator approximation; local error is not guaranteed,6,F100-PW-229,EXPERIMENTAL_BOUNDARY_REVISION
+4000,0,0.5,29336.2935915717,0.633325531587102,2.1588464459909e-05,1,Experimental simulator approximation; local error is not guaranteed,6,F100-PW-229,EXPERIMENTAL_BOUNDARY_REVISION
+4000,0.3,1,58654.0024979029,1.65196267823666,2.81645345225285e-05,1,Experimental simulator approximation; local error is not guaranteed,6,F100-PW-229,EXPERIMENTAL_BOUNDARY_REVISION

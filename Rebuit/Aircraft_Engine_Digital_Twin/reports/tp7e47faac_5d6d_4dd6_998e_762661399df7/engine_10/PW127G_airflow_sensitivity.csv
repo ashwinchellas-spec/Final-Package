@@ -1,0 +1,11 @@
+altitude,originalPower,candidatePower,assumption
+0,4114.19142162931,2183.09282310205,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+1000,3825.90779329078,2030.12232281492,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+2000,3544.27265641403,1880.6796783097,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+3000,3270.77862575478,1735.55690829113,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+4000,3006.68221130363,1595.42074837299,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+5000,2753.0210285544,1460.82178327668,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+6000,2510.63035558131,1332.20323243033,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+7000,2280.15905498106,1209.90939854932,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+8000,2062.08487724309,1094.19378798712,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs
+9000,1856.72916073408,985.226910914524,PW127 family airflow 8.49 kg/s; PW127G applicability unconfirmed; NOT training inputs

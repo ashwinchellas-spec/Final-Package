@@ -1,0 +1,1 @@
+Stored valid performance and all point logs in SQLite

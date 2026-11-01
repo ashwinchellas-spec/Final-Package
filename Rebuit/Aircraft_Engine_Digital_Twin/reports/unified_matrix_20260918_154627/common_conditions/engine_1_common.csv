@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,Thrust_N,FuelFlow_kgs,TSFC_kgNs,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0,0.5,24675.0109483154,0.612234276348501,2.48119150840863e-05,1,Experimental simulator approximation; local error is not guaranteed,1,J79-GE-17A,EXPERIMENTAL_J79_CHEB
+0,0.3,1,52635.1215674085,1.51492179214435,2.87815767691203e-05,1,Experimental simulator approximation; local error is not guaranteed,1,J79-GE-17A,EXPERIMENTAL_J79_CHEB
+2000,0,0.5,20517.0697842006,0.502420041392215,2.44879043000141e-05,1,Experimental simulator approximation; local error is not guaranteed,1,J79-GE-17A,EXPERIMENTAL_J79_CHEB
+2000,0.3,1,43962.0353772679,1.26497516141649,2.87742628511371e-05,1,Experimental simulator approximation; local error is not guaranteed,1,J79-GE-17A,EXPERIMENTAL_J79_CHEB
+4000,0,0.5,16758.3369141024,0.405065261503365,2.41709701612751e-05,1,Experimental simulator approximation; local error is not guaranteed,1,J79-GE-17A,EXPERIMENTAL_J79_CHEB
+4000,0.3,1,36193.8769740687,1.04299048777767,2.88167661211017e-05,1,Experimental simulator approximation; local error is not guaranteed,1,J79-GE-17A,EXPERIMENTAL_J79_CHEB

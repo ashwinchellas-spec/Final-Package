@@ -1,0 +1,6 @@
+{
+  "matlab_executed": false,
+  "syntax_lint": "MISS_HIT: passed",
+  "design_verification": "64 cells, 10 interior points each; 98 unique shell points; 8 corners; 738 unique bounded points",
+  "database_or_model_mutations": false
+}

@@ -1,0 +1,8 @@
+PATCH v3
+
+Fixed BUILD_UNIFIED_REGISTRY.m so it no longer depends on the project's
+private utc_timestamp helper. It now uses MATLAB's built-in datetime function
+to record the registry creation time.
+
+The registry must be rebuilt after replacing the add-on file. No existing
+database or model file is modified.

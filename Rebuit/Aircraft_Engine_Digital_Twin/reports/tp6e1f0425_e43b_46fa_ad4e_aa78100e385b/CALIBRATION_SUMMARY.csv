@@ -1,0 +1,3 @@
+Engine_ID,Engine,OriginalFlow_kgs,EffectiveFittedFlow_kgs,OriginalPower_kW,FitTarget_kW,FittedPower_kW,CalibrationErrorPercent,Label
+10,PW127G,16,8.47019412290724,4114.19142162931,2178,2178,2.08791253850534e-14,Experimental single-point calibration; independent validation pending
+11,AE 2100D3,26,12.2442668409711,7342.865127633,3458,3458,0,Experimental single-point calibration; independent validation pending; AE target provisional

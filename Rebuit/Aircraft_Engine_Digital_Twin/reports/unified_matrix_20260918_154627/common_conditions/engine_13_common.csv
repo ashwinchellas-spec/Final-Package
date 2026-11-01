@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,ShaftPower_kW,FuelFlow_kgs,BSFC_kgkWh,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0,0.5,93.5912975469225,0.00717174693846149,0.275862068965517,1,Experimental simulator approximation; local error is not guaranteed,13,Continental IO-550-B,EXPERIMENTAL_SIMULATOR_ONLY
+0,0.3,1,187.182592602444,0.014343493686011,0.275862068965517,1,Experimental simulator approximation; local error is not guaranteed,13,Continental IO-550-B,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0,0.5,76.9021055168999,0.00589288164880459,0.275862068965517,1,Experimental simulator approximation; local error is not guaranteed,13,Continental IO-550-B,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0.3,1,153.804210038598,0.0117857632213485,0.275862068965517,1,Experimental simulator approximation; local error is not guaranteed,13,Continental IO-550-B,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0,0.5,62.5995036089836,0.0047968968282746,0.275862068965517,1,Experimental simulator approximation; local error is not guaranteed,13,Continental IO-550-B,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0.3,1,125.199005127837,0.00959379349638601,0.275862068965517,1,Experimental simulator approximation; local error is not guaranteed,13,Continental IO-550-B,EXPERIMENTAL_SIMULATOR_ONLY

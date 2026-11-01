@@ -1,0 +1,8 @@
+{
+  "matlab_execution": false,
+  "matlab_lint": "3 files passed",
+  "sampling_design_independent_check": "counts, bounds, uniqueness, split disjointness, eight corners passed",
+  "kaveri_split_metadata": "720 unique indices covering all rows; engine ID8",
+  "kaveri_existing_metrics": "six checks meet existing thresholds",
+  "unchanged": "original sources, database, artifacts and validation gate"
+}

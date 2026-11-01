@@ -1,0 +1,12 @@
+Error using . (line 236)
+Unrecognized table variable name 'Split'.
+
+Error in RUN_INPUT_COVERAGE_STUDY>study_one (line 109)
+train=dataset(string(dataset.Split)=="Train",:);
+                     ^^^^^^^^^^^^^
+Error in RUN_INPUT_COVERAGE_STUDY>study_models (line 42)
+        [row,metrics]=study_one(e,b,dataset,dest,modelFile);
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in RUN_INPUT_COVERAGE_STUDY (line 25)
+report=study_models(p,ids,trainingFolder,j79File);
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

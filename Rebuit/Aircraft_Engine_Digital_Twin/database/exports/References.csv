@@ -1,0 +1,4 @@
+Ref_ID,Short_Tag,Authors,Title,Publisher,Year,Source_Type,URL_DOI,Notes
+1,ABACUS_v1_1,User-supplied project specification,Project Definition and Architecture Document v1.1,Academic project blueprint,2026,User_Specification,,77 pages. Original third-party citations were not independently verified; copied numerical values remain Estimated/Low.
+2,Implementation_Assumptions,Project implementation,Explicit academic component and off-design assumptions,docs/ASSUMPTIONS.md,2026,Engineering_Assumption,,Assumptions are not measured engine data and are not fitted to force reference agreement.
+3,NASA_Isentropic,NASA Glenn Research Center,Isentropic Flow Equations,NASA,,Government_Report,https://www.grc.nasa.gov/www/k-12/airplane/isentrop.html,"Supports ideal gas identities and choked-flow relations, not engine-specific ratings."

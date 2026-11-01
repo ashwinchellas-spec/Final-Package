@@ -1,0 +1,5 @@
+Engine_ID,Engine,Status,Model,WorstFreshRelativeRMSE,FailedFreshChecks,Note
+1,J79-GE-17A,REVIEW_REQUIRED,GPRLog,0.423688170426208,3,Fresh interior/face/edge test; corners are seen training checks
+2,SNECMA Atar 9C,MEETS_TESTED_SIMULATOR_CRITERIA,GPRLog,0.00439104004414834,0,Fresh interior/face/edge test; corners are seen training checks
+3,R-25-300,MEETS_TESTED_SIMULATOR_CRITERIA,GPRLog,0.00459567520165565,0,Fresh interior/face/edge test; corners are seen training checks
+6,F100-PW-229,MEETS_TESTED_SIMULATOR_CRITERIA,GPRLog,0.00377533645040421,0,Fresh interior/face/edge test; corners are seen training checks

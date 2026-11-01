@@ -1,0 +1,5 @@
+Engine_ID,Engine,Data_ID,Metric,ReferenceValue,SimulatedValue,RelativeErrorPercent,TolerancePercent,SourceVerified,Status,Reason,Source,Confidence
+9,PT6A-67D,9,ShaftPower_kW,1119,1194.0845305921,6.70996698767617,5,0,WARNING,Unverified secondary/estimated source; numerical comparison is not manufacturer validation.,ABACUS Table 23.1; unverified secondary value; NOT manufacturer-confirmed,Low
+10,PW127G,10,ShaftPower_kW,2051,4114.19142162931,100.59441353629,5,0,WARNING,Unverified secondary/estimated source; numerical comparison is not manufacturer validation.,ABACUS Table 23.1; unverified secondary value; NOT manufacturer-confirmed,Low
+11,AE 2100D3,11,ShaftPower_kW,3458,7342.865127633,112.344277837854,5,0,WARNING,Unverified secondary/estimated source; numerical comparison is not manufacturer validation.,ABACUS Table 23.1; unverified secondary value; NOT manufacturer-confirmed,Low
+10,PW127G,180,ShaftPower_kW,2178,4114.19142162931,88.8976777607581,5,1,FAIL,Prediction outside stated reference tolerance; no parameter fitting performed.,https://www.easa.europa.eu/en/downloads/7725/en#page=10,High

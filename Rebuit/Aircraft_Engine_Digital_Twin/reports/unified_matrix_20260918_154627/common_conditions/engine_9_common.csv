@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,ShaftPower_kW,FuelFlow_kgs,BSFC_kgkWh,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0,0.5,288.886029291364,0.0430832831853872,0.536759506383928,1,Experimental simulator approximation; local error is not guaranteed,9,PT6A-67D,EXPERIMENTAL_SIMULATOR_ONLY
+0,0.3,1,1294.14167359175,0.109696906240956,0.305080499949738,1,Experimental simulator approximation; local error is not guaranteed,9,PT6A-67D,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0,0.5,248.648482262757,0.0352576880225644,0.51051124992782,1,Experimental simulator approximation; local error is not guaranteed,9,PT6A-67D,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0.3,1,1105.25781625455,0.0911682802457637,0.296890660853279,1,Experimental simulator approximation; local error is not guaranteed,9,PT6A-67D,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0,0.5,210.774353947157,0.0285419247226955,0.487539353441819,1,Experimental simulator approximation; local error is not guaranteed,9,PT6A-67D,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0.3,1,930.558187097802,0.0748911890113526,0.289642501143118,1,Experimental simulator approximation; local error is not guaranteed,9,PT6A-67D,EXPERIMENTAL_SIMULATOR_ONLY

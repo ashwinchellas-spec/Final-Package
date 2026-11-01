@@ -1,0 +1,84 @@
+classdef DB_Interface < handle
+%DB_INTERFACE Typed SQLite access with no user values interpolated into SQL.
+% Input: SQLite path. Output: handle with read/append/atomic methods.
+% Ref: MathWorks sqlite, sqlread, sqlwrite (R2022a+); CHANGELOG C01.
+% Schema identifiers are allowlisted. NULL numeric values use MATLAB NaN.
+    properties (SetAccess=private)
+        Connection
+        File
+    end
+    methods
+        function obj = DB_Interface(filename)
+            % Open existing SQLite DB; establish FK and busy timeout on EVERY connection.
+            if nargin < 1, p = project_paths(); filename = p.database_file; end
+            if ~isfile(filename), error('ABACUS:MissingDatabase','Run db_initialize for %s.',filename); end
+            obj.File = char(filename);
+            obj.Connection = sqlite(obj.File,'connect');
+            execute(obj.Connection,'PRAGMA foreign_keys = ON');
+            execute(obj.Connection,'PRAGMA busy_timeout = 5000');
+            fetch(obj.Connection,'PRAGMA journal_mode = WAL');
+            check = fetch(obj.Connection,'PRAGMA foreign_keys');
+            if ~istable(check), check = cell2table(check); end
+            if check{1,1} ~= 1, error('ABACUS:ForeignKeys','SQLite foreign keys were not enabled.'); end
+        end
+        function t = read(obj,name)
+            % Read allowlisted table/view; callers filter typed columns in MATLAB.
+            obj.checkName(name);
+            t = db_read_sqlite(obj.Connection,char(name));
+        end
+        function append(obj,name,t)
+            % Typed value transfer through sqlwrite; no SQL literal construction.
+            obj.checkName(name);
+            if ~istable(t), error('ABACUS:DatabaseInput','Database rows must be a MATLAB table.'); end
+            if isempty(t), return; end
+            sqlwrite(obj.Connection,char(name),t);
+        end
+        function atomic(obj,work)
+            % Execute caller's typed writes as one transaction; rollback on any failure.
+            if strcmp(obj.Connection.AutoCommit,'off')
+                error('ABACUS:NestedTransaction','Nested database transactions are unsupported.');
+            end
+            obj.Connection.AutoCommit='off';
+            try
+                work();
+                commit(obj.Connection);
+                obj.Connection.AutoCommit='on';
+            catch exception
+                try
+                    rollback(obj.Connection);
+                catch cleanupError
+                    exception=addCause(exception,cleanupError);
+                end
+                try
+                    obj.Connection.AutoCommit='on';
+                catch cleanupError
+                    exception=addCause(exception,cleanupError);
+                end
+                rethrow(exception);
+            end
+        end
+        function t = pragma(obj,kind)
+            % Read-only integrity/metadata checks; names are closed choices.
+            options = {'foreign_key_check','integrity_check','foreign_keys','user_version'};
+            validatestring(kind,options);
+            t = fetch(obj.Connection,['PRAGMA ',char(kind)]);
+        end
+        function delete(obj)
+            % Deterministic connection release; safe for partially constructed handles.
+            if ~isempty(obj.Connection)
+                close(obj.Connection);
+                obj.Connection = [];
+            end
+        end
+    end
+    methods (Access=private)
+        function checkName(~,name)
+            % Allow only known schema identifiers; user text can never become SQL syntax.
+            allowed = {'Manufacturers','Engine_Types','Engines','Engine_Thermo_Params',...
+                'Parameter_Provenance','Aircraft','Engine_Aircraft_Map','Performance_Data',...
+                'Mission_Profiles','References','Simulation_Log','Project_Metadata',...
+                'v_Engine_Catalogue','v_Reference_Data','v_Provenance'};
+            validatestring(char(name),allowed);
+        end
+    end
+end

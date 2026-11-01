@@ -1,0 +1,102 @@
+TARGETED BOUNDARY RETRAINING AND KAVERI REPORT RECOVERY
+
+1. Extract this ZIP beside your other add-on folders.
+2. Set MATLAB Current Folder to ABACUS_BOUNDARY_RETRAIN.
+3. Run:
+       improved = RUN_BOUNDARY_RETRAIN;
+4. First dialog: select EXPERIMENTAL_RUN.mat from the original training folder:
+   Aircraft_Engine_Digital_Twin/reports/tp7e47faac_5d6d_4dd6_998e_762661399df7
+5. Second dialog: select coverage_study.mat from the completed coverage folder:
+   Aircraft_Engine_Digital_Twin/reports/tp1ffc6bd7_eb5e_4585_af32_85bc7dc70060
+6. Leave MATLAB running. It prints simulation progress and candidate-fit names.
+   Gaussian-process fitting can take several minutes per engine. Runtime depends
+   on your laptop; the script does not estimate completion time.
+7. Upload RETRAIN_SUMMARY.csv, FRESH_TEST_METRICS.csv and KAVERI_RECOVERY.csv
+   from the new output folder printed at completion.
+
+No edits or overwrites of your database, earlier model files, project source,
+validation gate or previous results are made. Every engine's work is saved in
+its own subfolder. An error is logged and the next engine continues. There is
+no automatic resume: rerunning generates a new result folder with the same seeds.
+
+Findings from your supplied files
+At J79 altitude=0 m, Mach=2, throttle=1:
+  simulator thrust 1209.375 N; prior ML thrust 9476.528 N;
+  simulator TSFC 0.002079974 kg/(N s); prior ML TSFC 0.000280930 kg/(N s).
+The thrust estimate is much too HIGH at this corner. Earlier speculation that
+predicted thrust might be too small did not explain this actual failure.
+The correct fuel/thrust identity cannot compensate for inaccurate thrust.
+The previous random-interior test was useful but did not establish corner accuracy.
+
+Kaveri's saved engine_8/metrics.csv already contains six passing checks. Its report
+failed afterward at the original training-sample counts. The uploaded native MAT
+has engine ID 8 and saved split index arrays (503 train, 108 validation, 109 test).
+MATLAB reads its native table without CSV header inference. The recovery checks
+fingerprints, index validity/disjointness, native Split labels and bounds, then
+writes separate recovered metrics/counts. It never invents Split labels or
+reruns the 738 already-computed Kaveri simulations. The precise cause of the
+CSV header inference is unconfirmed because the problematic CSV was not supplied.
+
+Training design: only engines 1, 2, 3 and 6
+Each engine gets a new training set of 2,896 candidate conditions:
+- 2,048 interior points: 32 in each of 64 altitude/Mach/throttle cells.
+- 600 face points: 100 on each of 6 faces.
+- 240 edge points: 20 on each of 12 edges.
+- All 8 corners.
+Invalid/nonfinite/nonpositive-thrust or fuel simulator rows are retained with
+warnings and excluded from fitting. The modeled bounds are unchanged: throttle
+0.5 to 1, engine-specific altitude/Mach bounds saved with the original models.
+No idle extrapolation, afterburner or verified aircraft operating envelope is added.
+
+Candidate models
+1. Degree-5 polynomial regression of thrust and fuel.
+2. Degree-5 polynomial regression of log(thrust) and log(fuel).
+3. Sparse Gaussian-process regression of log(thrust) and log(fuel), with an
+   ARD Matern 5/2 kernel, sr fitting, fic prediction and up to 1000 active points.
+Inputs and targets are scaled using training data only. The logarithmic models
+return to physical units with exp(). Every candidate derives TSFC from predicted
+fuel divided by predicted thrust; no true test targets enter this calculation.
+The same consistent formula is used for all four revised jet models.
+MathWorks API reference: https://www.mathworks.com/help/stats/fitrgp.html
+
+Selection and evidence
+A separate 1,060-point validation design (640 interior, 300 faces, 120 edges)
+selects the model with the smallest worst target/cohort normalized RMSE.
+Failed candidates are logged, not silently substituted or reported as fitted.
+The winner is saved before a separate 1,060-point fresh test is generated with
+another fixed seed. No training or tuning uses fresh-test results.
+The code asserts no exact test/training/validation overlaps. All simulation rows,
+validity flags, candidate diagnostics, fresh predictions and per-cohort metrics
+are saved. Nonfinite/negative ML predictions on accepted simulator rows cause
+failed metrics; they are not silently removed.
+
+Training corners are assessed separately in seen_corner_regression.csv. They
+are explicitly IN-SAMPLE regression checks, not fresh test points. No claim of
+independent corner generalization is possible at the same eight fixed locations.
+The earlier inspected coverage samples are not included in fresh-test evidence.
+Repeated runs repeat seeds and are not additional independent tests.
+
+Acceptance means only that these specific simulator checks passed. Status remains
+REVIEW_REQUIRED if fresh interior/face/edge or seen-corner checks fail. No result
+is guaranteed. Inspect MaxAPE_Percent too: group-average limits do not bound every
+individual error. Even a passing surrogate still reproduces an unvalidated
+physics model. The engine/source discrepancies in the turboprops are unchanged.
+
+Using a successfully reviewed revision
+Only after status MEETS_TESTED_SIMULATOR_CRITERIA, use the companion helper:
+    modelFile = fullfile(improved.Folder,'engine_1','boundary_model.mat');
+    prediction = PREDICT_BOUNDARY_MODEL(modelFile,[3000,0.4,0.8]);
+    disp(prediction);
+Keep Current Folder on this add-on folder. Original PREDICT_EXPERIMENTAL_ML does
+not support these separate bundles. The new helper checks source fingerprints,
+input bounds and simulator validity and includes the cleanup-order fix. Because
+it runs a physics validity check, it does not provide the old raw timing speedup.
+No new speed claim or production-GUI integration is made here.
+
+Verification before delivery
+Uploaded saved CSV metrics and worst points were inspected in Python.
+The native MAT metadata and split arrays were inspected with scipy; MATLAB must
+read its opaque native table. MATLAB source was syntax/lint checked with MISS_HIT.
+The joint sampling design was independently checked for counts, coverage,
+uniqueness, all eight corners and split disjointness. MATLAB is unavailable in
+the authoring environment; training and accuracy have not been executed here.

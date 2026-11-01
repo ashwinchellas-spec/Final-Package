@@ -1,0 +1,56 @@
+USE THE REVIEWED J79 PREDICTOR -- NO RETRAINING
+
+1. Extract this ZIP to a new ABACUS_J79_INTEGRATION folder beside the other
+   add-on folders. No files need to be copied into the engine project.
+2. Set MATLAB Current Folder to this new folder.
+3. Run:
+       result = START_J79_PREDICTIONS;
+4. Select j79_derived_tsfc_review.mat inside your successful review folder:
+   Aircraft_Engine_Digital_Twin/reports/
+   tp4a8db626_dc73_4fe3_92b6_a9fd550bffcb
+5. Three sample predictions will be printed. The new model path is printed too.
+
+The new bundle is j79_reviewed_model.mat in a NEW reports subfolder. The original
+model coefficients, original model files, database and operational GUI are unchanged.
+The code verifies the supplied review's 600 accepted points, matching output
+contract and passing simulator metrics before retaining that evidence in the new
+bundle. It also retains the original test metrics under OriginalTestMetrics.
+
+Predictions now use predicted fuel flow / predicted thrust for J79 TSFC.
+This rule is only activated by explicit metadata on the new J79 bundle. Other
+models, and the original engine_1 model file, keep the original independent fits.
+The supplied prediction helper also incorporates the database cleanup-order fix.
+
+After the demonstration, use this same folder and run your own query:
+    prediction = PREDICT_EXPERIMENTAL_ML(result.ModelFile,[3000,0.4,0.8]);
+    disp(prediction);
+Input columns: geometric altitude in metres, Mach number, throttle fraction.
+Multiple rows may be supplied. Bounds, stale source/parameter fingerprints,
+simulator validity and nonfinite/negative outputs are checked. Rejected rows
+are returned with NaN and a reason. These checks do not guarantee local accuracy.
+
+After restarting MATLAB, recover the returned model path by loading
+integration_result.mat from the printed integration folder:
+    saved = load('FULL_PATH_TO_integration_result.mat','result');
+    result = saved.result;
+Then use the prediction command above from this add-on folder.
+
+Progress and limitations
+The retained fresh-test results came from your actual MATLAB run:
+- 600/600 accepted simulator points.
+- Thrust normalized RMSE about 0.895%.
+- Fuel-flow normalized RMSE about 0.559%.
+- Derived TSFC normalized RMSE about 0.765%.
+All three meet the existing simulator criteria on that test.
+The demonstration here is an integration check, not another independent accuracy
+study. No new accuracy claims or revised speed measurements are made.
+
+The new bundle remains Operational=false. It is NOT manufacturer-validated.
+The guarded helper runs physics validity checks, so earlier raw model speedups
+are not end-to-end speedups. RawPredictionSeconds is set to NaN in the new bundle
+and the old timing is retained separately as OriginalRawPredictionSeconds.
+The production GUI's ML acceptance requirements are not changed.
+
+The two piston BSFC R2 flags remain constant-reference metric limitations, not
+new evidence of model failure. PW127G and AE 2100D3 physics discrepancies remain
+unresolved; this J79 integration does not repair those engines or validate them.

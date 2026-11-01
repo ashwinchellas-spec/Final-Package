@@ -1,0 +1,48 @@
+function report = verify_project(databaseFile)
+%VERIFY_PROJECT Check installation, duplicate public function names and DB integrity.
+% Input: optional DB path. Output: PASS/FAIL/WARNING table; no simulation claims.
+p=project_paths(); addpath(p.root,genpath(p.matlab),p.gui,p.simulink);
+if nargin<1, databaseFile=p.database_file; end
+checks=strings(0,1); statuses=strings(0,1); detail=strings(0,1);
+required={'README.md','LICENSE','CHANGELOG.md','database/schema.sql','database/seed_data.sql',...
+    'database/engine_analysis.db','database/engine_test.db','gui/EngineAnalyser_v1.m',...
+    'run_all_tests.m','run_project.m','simulink/build_simulink_models.m'};
+for i=1:numel(required)
+    checks(end+1)="File: "+required{i};
+    if isfile(fullfile(p.root,required{i})), statuses(end+1)="PASS"; else, statuses(end+1)="FAIL"; end
+    detail(end+1)="Presence check only";
+end
+checks(end+1)="MATLAB release";
+if ~verLessThan('matlab','23.2'), statuses(end+1)="PASS"; else, statuses(end+1)="FAIL"; end
+detail(end+1)=version;
+for entry={'Database_Toolbox','Statistics_Toolbox','Simulink'}
+    checks(end+1)="License: "+entry{1}; present=license('test',entry{1});
+    if present, statuses(end+1)="PASS"; else, statuses(end+1)="WARNING"; end
+    detail(end+1)="License availability is not proof of functional execution.";
+end
+files=dir(fullfile(p.root,'**','*.m')); names=string({files.name});
+checks(end+1)="Unique public MATLAB filenames";
+if numel(unique(names))==numel(names), statuses(end+1)="PASS"; else, statuses(end+1)="FAIL"; end
+detail(end+1)=string(numel(files))+" MATLAB source files";
+try
+    db=DB_Interface(databaseFile); cleanup=onCleanup(@() delete(db));
+    t=db.pragma('integrity_check'); checks(end+1)="SQLite integrity";
+    if istable(t), value=string(t{1,1}); else, value=string(t{1}); end
+    if value=="ok", statuses(end+1)="PASS"; else, statuses(end+1)="FAIL"; end
+    detail(end+1)=value;
+    fk=db.pragma('foreign_key_check'); checks(end+1)="SQLite foreign keys";
+    if isempty(fk), statuses(end+1)="PASS"; else, statuses(end+1)="FAIL"; end
+    detail(end+1)="Read-only foreign_key_check";
+    engines=db.read('Engines');
+    for i=1:height(engines), db_get_engine(db,engines.Engine_ID(i)); end
+    checks(end+1)="Parameter provenance"; statuses(end+1)="PASS"; detail(end+1)="Every populated numerical engine parameter checked against its provenance value.";
+catch exception
+    checks(end+1)="Database readiness"; statuses(end+1)="FAIL"; detail(end+1)=string(exception.message);
+end
+report=table(checks(:),statuses(:),detail(:),'VariableNames',{'Check','Status','Diagnostic'});
+for i=1:height(report)
+    fprintf('%s | %s | %s\n',report.Status(i),report.Check(i),report.Diagnostic(i));
+end
+if ~isfolder(p.reports), mkdir(p.reports); end
+writetable(report,fullfile(p.reports,'installation_verification.csv'));
+end

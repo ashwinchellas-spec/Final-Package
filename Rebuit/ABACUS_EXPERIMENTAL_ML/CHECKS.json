@@ -1,0 +1,9 @@
+{
+  "matlab_runtime_executed": false,
+  "lint": "MISS_HIT: 2 MATLAB files, no findings",
+  "uploaded_database_integrity": "ok",
+  "uploaded_database_foreign_key_errors": 0,
+  "engine_count": 13,
+  "original_files_unchanged": 219,
+  "workflow": "Experimental simulator surrogate only; operational validation gate unchanged"
+}

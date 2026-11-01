@@ -1,0 +1,14 @@
+Engine_ID,Designation,Type_Name,Manufacturer,Overall_Confidence,Rated_Thrust_N,Rated_Power_kW,DryWeight_kg,MaxAltitude_m,MaxMach
+1,J79-GE-17A,Turbojet,General Electric Aviation,Low,52489.0,,1749.0,18000.0,2.0
+2,SNECMA Atar 9C,Turbojet,Safran Aircraft Engines (SNECMA),Low,41800.0,,1438.0,18000.0,2.2
+3,R-25-300,Turbojet,Tumansky / Soviet design family,Low,40200.0,,1218.0,20000.0,2.5
+4,CFM56-5B4,Turbofan_HighBPR,CFM International,Low,120100.0,,2381.0,13000.0,0.92
+5,CF6-80C2B1F,Turbofan_HighBPR,General Electric Aviation,Low,257300.0,,4181.0,13000.0,0.9
+6,F100-PW-229,Turbofan_LowBPR,Pratt & Whitney,Low,79400.0,,1696.0,15000.0,1.8
+7,SNECMA M88-2,Turbofan_LowBPR,Safran Aircraft Engines (SNECMA),Low,50040.0,,897.0,17000.0,1.8
+8,GTX-35VS Kaveri,Turbofan_LowBPR,GTRE / DRDO,Low,53400.0,,1008.0,15000.0,1.8
+9,PT6A-67D,Turboprop,Pratt & Whitney Canada,Low,,1119.0,213.0,9000.0,0.55
+10,PW127G,Turboprop,Pratt & Whitney Canada,Low,,2051.0,481.0,9000.0,0.65
+11,AE 2100D3,Turboprop,Rolls-Royce,Low,,3458.0,745.0,9000.0,0.7
+12,Lycoming O-360-A1A,Piston,Lycoming,Low,,,117.0,5000.0,0.4
+13,Continental IO-550-B,Piston,Continental,Low,,,200.0,5000.0,0.4

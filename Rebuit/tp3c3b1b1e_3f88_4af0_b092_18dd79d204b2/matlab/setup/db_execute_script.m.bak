@@ -1,0 +1,43 @@
+function db_execute_script(connection, filename)
+%DB_EXECUTE_SCRIPT Execute trusted project SQL with an explicit transaction.
+% Replacement for the startup commit/rollback failure observed in R2026a.
+% Uses SQL transaction control consistently for execute-based scripts.
+% Does not support calls inside a caller-owned transaction.
+
+commands = regexp(fileread(filename), ...
+    '(?m)^-- @statement[^\S\r\n]*\r?$', 'split');
+if ~strcmpi(connection.AutoCommit, 'on')
+    error('ABACUS:NestedTransaction', ...
+        'db_execute_script requires AutoCommit on and no active transaction.');
+end
+
+% Enable foreign keys before entering a transaction (also for fresh DBs).
+execute(connection, 'PRAGMA foreign_keys = ON');
+% Keep BEGIN outside try: a failed BEGIN must not roll back caller work.
+execute(connection, 'BEGIN IMMEDIATE TRANSACTION');
+stage = 'executing SQL script';
+try
+    for i = 1:numel(commands)
+        command = strtrim(commands{i});
+        if isempty(command) || ...
+                strcmpi(command, 'PRAGMA foreign_keys = ON;')
+            continue
+        end
+        stage = sprintf('executing statement %d', i);
+        execute(connection, command);
+    end
+    stage = 'committing SQL script';
+    execute(connection, 'COMMIT');
+catch originalError
+    % Keep the original error even if SQLite has already rolled back.
+    try
+        execute(connection, 'ROLLBACK');
+    catch rollbackError
+        originalError = addCause(originalError, rollbackError);
+    end
+    context = MException('ABACUS:SQLScript', ...
+        'Failed while %s in %s.', stage, char(filename));
+    context = addCause(context, originalError);
+    throw(context);
+end
+end

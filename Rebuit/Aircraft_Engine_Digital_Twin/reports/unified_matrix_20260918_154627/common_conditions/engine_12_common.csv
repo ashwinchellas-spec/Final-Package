@@ -1,0 +1,7 @@
+Altitude_m,Mach,Throttle,ShaftPower_kW,FuelFlow_kgs,BSFC_kgkWh,PredictionAvailable,Note,Engine_ID,Engine,ModelMode
+0,0,0.5,57.2640091686618,0.00470147858527601,0.295566502463054,1,Experimental simulator approximation; local error is not guaranteed,12,Lycoming O-360-A1A,EXPERIMENTAL_SIMULATOR_ONLY
+0,0.3,1,114.528015909188,0.00940295697119766,0.295566502463054,1,Experimental simulator approximation; local error is not guaranteed,12,Lycoming O-360-A1A,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0,0.5,47.0526962456925,0.00386311135022106,0.295566502463054,1,Experimental simulator approximation; local error is not guaranteed,12,Lycoming O-360-A1A,EXPERIMENTAL_SIMULATOR_ONLY
+2000,0.3,1,94.1053906442056,0.00772622254878535,0.295566502463054,1,Experimental simulator approximation; local error is not guaranteed,12,Lycoming O-360-A1A,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0,0.5,38.3016234101317,0.00314463246388602,0.295566502463054,1,Experimental simulator approximation; local error is not guaranteed,12,Lycoming O-360-A1A,EXPERIMENTAL_SIMULATOR_ONLY
+4000,0.3,1,76.6032431320339,0.00628926462496173,0.295566502463054,1,Experimental simulator approximation; local error is not guaranteed,12,Lycoming O-360-A1A,EXPERIMENTAL_SIMULATOR_ONLY

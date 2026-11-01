@@ -1,0 +1,1317 @@
+{
+  "timestamp_utc": "2026-09-17T12:14:03.784Z",
+  "runtime": "Node.js v24.19.0",
+  "scope": "Executed SQL/schema/data and static source checks. DOES NOT execute MATLAB or Simulink.",
+  "checks": [
+    {
+      "name": "Fresh schema and seed execute",
+      "status": "PASS",
+      "detail": "Created all schema objects and seeded a temporary database"
+    },
+    {
+      "name": "Eleven core engines",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Required tables, metadata, views and indexes",
+      "status": "PASS",
+      "detail": [
+        {
+          "name": "Manufacturers",
+          "type": "table"
+        },
+        {
+          "name": "Engine_Types",
+          "type": "table"
+        },
+        {
+          "name": "Engines",
+          "type": "table"
+        },
+        {
+          "name": "Engine_Thermo_Params",
+          "type": "table"
+        },
+        {
+          "name": "References",
+          "type": "table"
+        },
+        {
+          "name": "Parameter_Provenance",
+          "type": "table"
+        },
+        {
+          "name": "Aircraft",
+          "type": "table"
+        },
+        {
+          "name": "Engine_Aircraft_Map",
+          "type": "table"
+        },
+        {
+          "name": "Performance_Data",
+          "type": "table"
+        },
+        {
+          "name": "Mission_Profiles",
+          "type": "table"
+        },
+        {
+          "name": "Simulation_Log",
+          "type": "table"
+        },
+        {
+          "name": "Project_Metadata",
+          "type": "table"
+        },
+        {
+          "name": "ix_performance_engine_condition",
+          "type": "index"
+        },
+        {
+          "name": "ix_log_engine_time",
+          "type": "index"
+        },
+        {
+          "name": "ix_provenance_engine",
+          "type": "index"
+        },
+        {
+          "name": "v_Engine_Catalogue",
+          "type": "view"
+        },
+        {
+          "name": "v_Reference_Data",
+          "type": "view"
+        },
+        {
+          "name": "v_Provenance",
+          "type": "view"
+        },
+        {
+          "name": "protect_Simulation_Log_UPDATE",
+          "type": "trigger"
+        },
+        {
+          "name": "protect_Simulation_Log_DELETE",
+          "type": "trigger"
+        },
+        {
+          "name": "protect_Performance_Data_UPDATE",
+          "type": "trigger"
+        },
+        {
+          "name": "protect_Performance_Data_DELETE",
+          "type": "trigger"
+        }
+      ]
+    },
+    {
+      "name": "Reproducible idempotent seed",
+      "status": "PASS",
+      "detail": {
+        "Engines": 11,
+        "Engine_Thermo_Params": 11,
+        "Parameter_Provenance": 192,
+        "Performance_Data": 13,
+        "Mission_Profiles": 7,
+        "Aircraft": 11,
+        "Engine_Aircraft_Map": 11
+      }
+    },
+    {
+      "name": "Foreign keys explicitly enabled",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Foreign-key violations rejected",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Database integrity and FK checks",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Every numeric parameter has matching provenance and unit",
+      "status": "PASS",
+      "detail": "192 populated numerical parameter values checked"
+    },
+    {
+      "name": "No unverified manufacturer/type-certificate claims",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Kaveri provenance remains Low/Estimated or Assumed",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Missing TSFC not fabricated",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "All four data types accepted, invalid enum rejected",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Reference records immutable",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Simulation log append-only",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Transaction rollback",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Quoted text survives prepared-value roundtrip",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Efficiency, OPR and mission weight constraints",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Six PDF missions plus requested Trainer",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Optional piston seed is separate and reproducible",
+      "status": "PASS",
+      "detail": "Optional seed yields 13; delivered production DB includes the 13-engine extension"
+    },
+    {
+      "name": "Delivered engine_analysis.db integrity",
+      "status": "PASS",
+      "detail": {
+        "integrity_check": "ok"
+      }
+    },
+    {
+      "name": "Delivered engine_test.db integrity",
+      "status": "PASS",
+      "detail": {
+        "integrity_check": "ok"
+      }
+    },
+    {
+      "name": "Unique public MATLAB filenames",
+      "status": "PASS",
+      "detail": "98 public source files"
+    },
+    {
+      "name": "No forbidden unfinished implementation markers",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "No hardcoded author workspace paths in MATLAB",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "MATLAB source entry names match filenames",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "GUI dispatched action registry has handlers",
+      "status": "PASS",
+      "detail": [
+        "filter",
+        "engine",
+        "sources",
+        "physics",
+        "predict",
+        "validate",
+        "database",
+        "units",
+        "csv",
+        "mat",
+        "png",
+        "pdf",
+        "report",
+        "verify",
+        "sweep",
+        "map",
+        "compare",
+        "overlay",
+        "ml_metrics",
+        "dataset",
+        "train",
+        "mission_preset",
+        "mission"
+      ]
+    },
+    {
+      "name": "Simulink wrapper and model references exist",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    },
+    {
+      "name": "Regression and ML gates are implemented",
+      "status": "PASS",
+      "detail": "Assertion satisfied"
+    }
+  ],
+  "source_dependency_index": [
+    {
+      "file": "START_HERE.m",
+      "project_dependencies": [
+        "EngineAnalyser_v1",
+        "db_seed_piston_extension",
+        "export_engine_database",
+        "run_all_tests",
+        "run_altitude_study",
+        "setup_project",
+        "verify_project"
+      ]
+    },
+    {
+      "file": "gui/EngineAnalyser_v1.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "gui_build",
+        "gui_refresh_engine",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "gui/gui_action.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "gui_analysis_action",
+        "gui_export_action",
+        "gui_mission_action",
+        "gui_mission_preset",
+        "gui_ml_action",
+        "gui_refresh_engine",
+        "project_config",
+        "project_paths",
+        "validate_physics"
+      ]
+    },
+    {
+      "file": "gui/gui_analysis_action.m",
+      "project_dependencies": [
+        "compare_engines",
+        "db_get_engine",
+        "evaluate_grid",
+        "flight_condition",
+        "format_result_metrics",
+        "plot_performance",
+        "plot_performance_map",
+        "project_config",
+        "result_row"
+      ]
+    },
+    {
+      "file": "gui/gui_build.m",
+      "project_dependencies": [
+        "gui_action",
+        "gui_build_analysis_tabs",
+        "gui_build_mission_tab",
+        "project_config"
+      ]
+    },
+    {
+      "file": "gui/gui_build_analysis_tabs.m",
+      "project_dependencies": [
+        "gui_action"
+      ]
+    },
+    {
+      "file": "gui/gui_build_mission_tab.m",
+      "project_dependencies": [
+        "gui_action"
+      ]
+    },
+    {
+      "file": "gui/gui_export_action.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "db_initialize",
+        "db_seed",
+        "format_result_metrics",
+        "generate_report",
+        "gui_refresh_engine",
+        "project_paths",
+        "verify_project"
+      ]
+    },
+    {
+      "file": "gui/gui_mission_action.m",
+      "project_dependencies": [
+        "EngineSelector",
+        "flight_condition",
+        "project_config"
+      ]
+    },
+    {
+      "file": "gui/gui_mission_preset.m",
+      "project_dependencies": [
+        "load_mission",
+        "project_config"
+      ]
+    },
+    {
+      "file": "gui/gui_ml_action.m",
+      "project_dependencies": [
+        "ml_generate_dataset",
+        "ml_train_surrogates",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "gui/gui_refresh_engine.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "gui_mission_preset",
+        "project_config"
+      ]
+    },
+    {
+      "file": "matlab/atmosphere/ISA_model.m",
+      "project_dependencies": [
+        "flight_condition",
+        "project_config"
+      ]
+    },
+    {
+      "file": "matlab/comparison/compare_engines.m",
+      "project_dependencies": [
+        "result_row"
+      ]
+    },
+    {
+      "file": "matlab/comparison/comparison_sweep.m",
+      "project_dependencies": [
+        "compare_engines",
+        "flight_condition"
+      ]
+    },
+    {
+      "file": "matlab/digital_twin/DT_Coordinator.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_get_engine",
+        "db_log_failure",
+        "db_store_results",
+        "evaluate_grid",
+        "ml_predict",
+        "performance_grid",
+        "project_paths",
+        "simulate_engine"
+      ]
+    },
+    {
+      "file": "matlab/digital_twin/simulate_engine.m",
+      "project_dependencies": [
+        "Piston_Model",
+        "TF_Model",
+        "TJ_Model",
+        "TP_Model",
+        "project_config",
+        "result_template"
+      ]
+    },
+    {
+      "file": "matlab/engines/common/burner_stage.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/engines/common/compress_stage.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/engines/common/gas_turbine_cycle.m",
+      "project_dependencies": [
+        "ISA_model",
+        "burner_stage",
+        "compress_stage",
+        "nozzle_model",
+        "project_config",
+        "propeller_model",
+        "result_template",
+        "turbine_stage",
+        "validate_inputs",
+        "validate_outputs"
+      ]
+    },
+    {
+      "file": "matlab/engines/common/nozzle_model.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/engines/common/propeller_model.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/engines/common/result_template.m",
+      "project_dependencies": [
+        "project_config",
+        "utc_timestamp"
+      ]
+    },
+    {
+      "file": "matlab/engines/common/turbine_stage.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/engines/piston/Piston_Model.m",
+      "project_dependencies": [
+        "ISA_model",
+        "project_config",
+        "propeller_model",
+        "result_template",
+        "validate_inputs",
+        "validate_outputs"
+      ]
+    },
+    {
+      "file": "matlab/engines/turbofan/TF_Model.m",
+      "project_dependencies": [
+        "gas_turbine_cycle"
+      ]
+    },
+    {
+      "file": "matlab/engines/turbojet/TJ_Model.m",
+      "project_dependencies": [
+        "gas_turbine_cycle"
+      ]
+    },
+    {
+      "file": "matlab/engines/turboprop/TP_Model.m",
+      "project_dependencies": [
+        "gas_turbine_cycle"
+      ]
+    },
+    {
+      "file": "matlab/mission/EngineSelector.m",
+      "project_dependencies": [
+        "apply_hard_constraints",
+        "db_get_engine",
+        "flight_condition",
+        "load_mission",
+        "normalise_metric",
+        "project_config",
+        "result_row",
+        "simulate_engine",
+        "utc_timestamp",
+        "validate_mission"
+      ]
+    },
+    {
+      "file": "matlab/mission/apply_hard_constraints.m",
+      "project_dependencies": [
+        "validate_mission"
+      ]
+    },
+    {
+      "file": "matlab/mission/load_mission.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/mission/normalise_metric.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/mission/validate_mission.m",
+      "project_dependencies": [
+        "flight_condition"
+      ]
+    },
+    {
+      "file": "matlab/ml/ml_apply_candidate.m",
+      "project_dependencies": [
+        "ml_polynomial_features"
+      ]
+    },
+    {
+      "file": "matlab/ml/ml_diagnostic_report.m",
+      "project_dependencies": [
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/ml/ml_domain_valid.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/ml/ml_fit_candidate.m",
+      "project_dependencies": [
+        "ml_polynomial_features"
+      ]
+    },
+    {
+      "file": "matlab/ml/ml_generate_dataset.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "ml_stratified_split",
+        "ml_targets",
+        "performance_grid",
+        "project_config",
+        "project_paths",
+        "require_validation",
+        "utc_timestamp"
+      ]
+    },
+    {
+      "file": "matlab/ml/ml_learning_curve.m",
+      "project_dependencies": [
+        "ml_apply_candidate",
+        "ml_fit_candidate",
+        "ml_metrics"
+      ]
+    },
+    {
+      "file": "matlab/ml/ml_metrics.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/ml/ml_polynomial_features.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/ml/ml_predict.m",
+      "project_dependencies": [
+        "ISA_model",
+        "ml_apply_candidate",
+        "ml_domain_valid",
+        "project_config",
+        "project_paths",
+        "result_template",
+        "validate_inputs",
+        "validate_outputs"
+      ]
+    },
+    {
+      "file": "matlab/ml/ml_stratified_split.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/ml/ml_targets.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/ml/ml_train_surrogates.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "ml_apply_candidate",
+        "ml_diagnostic_report",
+        "ml_fit_candidate",
+        "ml_generate_dataset",
+        "ml_metrics",
+        "project_paths",
+        "require_validation",
+        "utc_timestamp"
+      ]
+    },
+    {
+      "file": "matlab/performance/evaluate_grid.m",
+      "project_dependencies": [
+        "db_store_results",
+        "flight_condition",
+        "result_row",
+        "simulate_engine"
+      ]
+    },
+    {
+      "file": "matlab/performance/performance_grid.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/reporting/format_result_metrics.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/reporting/generate_report.m",
+      "project_dependencies": [
+        "format_result_metrics",
+        "html_escape",
+        "project_config",
+        "project_paths",
+        "table_to_html",
+        "utc_timestamp",
+        "write_text"
+      ]
+    },
+    {
+      "file": "matlab/reporting/html_escape.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/reporting/plot_altitude_study.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/reporting/plot_performance.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/reporting/plot_performance_map.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/reporting/result_row.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/reporting/table_to_html.m",
+      "project_dependencies": [
+        "html_escape"
+      ]
+    },
+    {
+      "file": "matlab/setup/DB_Interface.m",
+      "project_dependencies": [
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/setup/db_add_reference.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "flight_condition",
+        "utc_timestamp"
+      ]
+    },
+    {
+      "file": "matlab/setup/db_execute_script.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/setup/db_get_engine.m",
+      "project_dependencies": [
+        "model_fingerprint"
+      ]
+    },
+    {
+      "file": "matlab/setup/db_initialize.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_execute_script",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/setup/db_log_failure.m",
+      "project_dependencies": [
+        "project_config",
+        "utc_timestamp"
+      ]
+    },
+    {
+      "file": "matlab/setup/db_seed.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_execute_script",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/setup/db_seed_piston_extension.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_execute_script",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/setup/db_store_results.m",
+      "project_dependencies": [
+        "result_row"
+      ]
+    },
+    {
+      "file": "matlab/setup/export_engine_database.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/setup/project_config.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/utilities/flight_condition.m",
+      "project_dependencies": [
+        "project_config"
+      ]
+    },
+    {
+      "file": "matlab/utilities/model_fingerprint.m",
+      "project_dependencies": [
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/utilities/utc_timestamp.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/utilities/write_text.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/validation/parameter_sensitivity.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "model_fingerprint",
+        "result_row",
+        "simulate_engine"
+      ]
+    },
+    {
+      "file": "matlab/validation/regression_baseline.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "flight_condition",
+        "project_paths",
+        "result_row",
+        "utc_timestamp",
+        "validate_physics"
+      ]
+    },
+    {
+      "file": "matlab/validation/require_validation.m",
+      "project_dependencies": [
+        "project_paths"
+      ]
+    },
+    {
+      "file": "matlab/validation/validate_inputs.m",
+      "project_dependencies": [
+        "project_config"
+      ]
+    },
+    {
+      "file": "matlab/validation/validate_outputs.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "matlab/validation/validate_physics.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_get_engine",
+        "project_paths",
+        "utc_timestamp",
+        "validate_references",
+        "write_text"
+      ]
+    },
+    {
+      "file": "matlab/validation/validate_references.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "flight_condition",
+        "project_paths",
+        "simulate_engine"
+      ]
+    },
+    {
+      "file": "project_paths.m",
+      "project_dependencies": []
+    },
+    {
+      "file": "run_all_tests.m",
+      "project_dependencies": [
+        "project_paths"
+      ]
+    },
+    {
+      "file": "run_altitude_study.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "ISA_model",
+        "START_HERE",
+        "db_get_engine",
+        "db_seed_piston_extension",
+        "db_store_results",
+        "flight_condition",
+        "plot_altitude_study",
+        "result_row",
+        "setup_project",
+        "simulate_engine",
+        "write_text"
+      ]
+    },
+    {
+      "file": "run_project.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "EngineAnalyser_v1",
+        "EngineSelector",
+        "build_simulink_models",
+        "compare_engines",
+        "flight_condition",
+        "format_result_metrics",
+        "generate_report",
+        "ml_train_surrogates",
+        "setup_project",
+        "validate_physics"
+      ]
+    },
+    {
+      "file": "scripts/audit_dependencies.m",
+      "project_dependencies": [
+        "project_paths",
+        "utc_timestamp",
+        "write_text"
+      ]
+    },
+    {
+      "file": "scripts/run_phase_tests.m",
+      "project_dependencies": [
+        "project_paths"
+      ]
+    },
+    {
+      "file": "setup_project.m",
+      "project_dependencies": [
+        "db_initialize",
+        "db_seed",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "simulink/abacus_sfun.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "flight_condition"
+      ]
+    },
+    {
+      "file": "simulink/build_simulink_models.m",
+      "project_dependencies": [
+        "project_paths"
+      ]
+    },
+    {
+      "file": "simulink/run_simulink_model.m",
+      "project_dependencies": [
+        "build_simulink_models",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "tests/TestAtmosphere.m",
+      "project_dependencies": [
+        "ISA_model",
+        "flight_condition"
+      ]
+    },
+    {
+      "file": "tests/TestDatabase.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "db_seed",
+        "new_test_database"
+      ]
+    },
+    {
+      "file": "tests/TestEngines.m",
+      "project_dependencies": [
+        "Piston_Model",
+        "TF_Model",
+        "TJ_Model",
+        "TP_Model",
+        "compress_stage",
+        "db_get_engine",
+        "db_seed_piston_extension",
+        "flight_condition",
+        "model_fingerprint",
+        "new_test_database",
+        "nozzle_model",
+        "project_config",
+        "propeller_model",
+        "simulate_engine"
+      ]
+    },
+    {
+      "file": "tests/TestGUI.m",
+      "project_dependencies": [
+        "EngineAnalyser_v1",
+        "gui_action",
+        "new_test_database",
+        "project_paths"
+      ]
+    },
+    {
+      "file": "tests/TestIntegration.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "EngineSelector",
+        "compare_engines",
+        "db_get_engine",
+        "evaluate_grid",
+        "flight_condition",
+        "format_result_metrics",
+        "generate_report",
+        "html_escape",
+        "new_test_database",
+        "performance_grid",
+        "validate_references"
+      ]
+    },
+    {
+      "file": "tests/TestML.m",
+      "project_dependencies": [
+        "db_get_engine",
+        "flight_condition",
+        "ml_apply_candidate",
+        "ml_domain_valid",
+        "ml_fit_candidate",
+        "ml_metrics",
+        "ml_predict",
+        "ml_stratified_split",
+        "new_test_database",
+        "require_validation"
+      ]
+    },
+    {
+      "file": "tests/TestMission.m",
+      "project_dependencies": [
+        "apply_hard_constraints",
+        "normalise_metric",
+        "validate_mission"
+      ]
+    },
+    {
+      "file": "tests/TestRebuild.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_execute_script",
+        "db_initialize",
+        "db_seed",
+        "run_altitude_study",
+        "write_text"
+      ]
+    },
+    {
+      "file": "tests/TestSimulink.m",
+      "project_dependencies": [
+        "DT_Coordinator",
+        "build_simulink_models",
+        "flight_condition",
+        "new_test_database"
+      ]
+    },
+    {
+      "file": "tests/new_test_database.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_initialize",
+        "db_seed"
+      ]
+    },
+    {
+      "file": "verify_project.m",
+      "project_dependencies": [
+        "DB_Interface",
+        "db_get_engine",
+        "project_paths"
+      ]
+    }
+  ],
+  "test_functions": [
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testSeaLevel"
+    },
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testGeopotentialCheckpoints"
+    },
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testLayerContinuity"
+    },
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testGeometricConversion"
+    },
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testMachStagnation"
+    },
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testNegativeAltitude"
+    },
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testUpperBound"
+    },
+    {
+      "suite": "TestAtmosphere.m",
+      "test": "testInvalidMachAndThrottle"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testAllTablesAndEngines"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testSeedIdempotent"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testProvenanceAudit"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testForeignKeyFailure"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testLiteralTextRoundTrip"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testAtomicRollback"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testImmutableReference"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testMissingProvenanceRejected"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testInvalidEngineID"
+    },
+    {
+      "suite": "TestDatabase.m",
+      "test": "testSchemaConstraints"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testIdealCompressionCheckpoint"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testNozzleChoked"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testNozzleUnchoked"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testNozzleBoundaryContinuity"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testNoExpansionRejected"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testAllCoreEnginesSLS"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testTurbofanMassAndFanDemand"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testTurbopropPowerAndStaticCase"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testPropellerContinuousAndFinite"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testKaveriWarningAndType"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testAltitudeAndMachEnvelope"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testAfterburnerRejected"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testBadEfficiencyAndTemperature"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testPistonPowerTorqueAndAltitude"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testZeroThrottleState"
+    },
+    {
+      "suite": "TestEngines.m",
+      "test": "testChangedParametersInvalidateFingerprint"
+    },
+    {
+      "suite": "TestGUI.m",
+      "test": "testEightTabsAndKaveriWarning"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testPersistenceAndLog"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testFailedPointLogsWithoutPerformance"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testLogImmutable"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testArchitectureGridCounts"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testGridValidityMaskAndTemperatureFields"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testCompatibleComparison"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testIncompatibleComparisonRejected"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testAllMissionPresets"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testUnverifiedReferencesCannotPass"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testReportingContainsProvenance"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testOutputUnitConversion"
+    },
+    {
+      "suite": "TestIntegration.m",
+      "test": "testHTMLTextEscaped"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testSplitDeterministicAndDisjoint"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testDuplicateInputsRejected"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testMetricsKnownErrors"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testConstantAndZeroTargets"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testPolynomialTrainPredict"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testFourCandidateAPIs"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testMLCellRejectsHolesAndExtrapolation"
+    },
+    {
+      "suite": "TestML.m",
+      "test": "testMissingModelAndGate"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testNormalisationDirections"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testTieAndSingleMetric"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testAllEliminated"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testOnlyOneSurvives"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testHighScoreCannotOverrideConstraint"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testArchitectureAndCeiling"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testWeightsRejected"
+    },
+    {
+      "suite": "TestMission.m",
+      "test": "testMixedSFCRejected"
+    },
+    {
+      "suite": "TestRebuild.m",
+      "test": "testRepeatAndEmptyScriptTransactions"
+    },
+    {
+      "suite": "TestRebuild.m",
+      "test": "testSQLFailureRollsBackAndRetainsCause"
+    },
+    {
+      "suite": "TestRebuild.m",
+      "test": "testAltitudeStudyPreservesInvalidPoints"
+    },
+    {
+      "suite": "TestRebuild.m",
+      "test": "testAltitudePersistence"
+    },
+    {
+      "suite": "TestSimulink.m",
+      "test": "testBuiltModelsMatchBackend"
+    }
+  ],
+  "summary": {
+    "passed": 28,
+    "failed": 0,
+    "matlab_source_files": 98,
+    "matlab_test_functions": 68,
+    "MATLAB_runtime": "NOT EXECUTED",
+    "Simulink_runtime": "NOT EXECUTED",
+    "ML_training": "NOT EXECUTED",
+    "GUI_runtime": "NOT EXECUTED"
+  }
+}

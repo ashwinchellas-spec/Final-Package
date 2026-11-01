@@ -1,0 +1,4 @@
+Model,WorstValidationRelativeRMSE,Diagnostic
+PolyRaw,0.130950169046278,OK
+PolyLog,0.148215220738096,OK
+GPRLog,0.0303740628567883,OK

@@ -1,0 +1,7 @@
+These are academic model predictions, not measured engine tests.
+Altitude_m is geometric; engine limits are checked in geopotential metres.
+Mach and throttle are held fixed; true airspeed changes with ISA temperature.
+Invalid points remain in CSV with Valid=0 and reasons; plots show gaps.
+Compare jet thrust and TSFC within jet types, shaft power and BSFC within propeller types.
+TSFC_kgNs and BSFC_kgkWh have different units and cannot be directly ranked.
+Kaveri and optional piston records are estimates/assumptions, not verified variant data.

@@ -1,0 +1,23 @@
+ML cleanup fix: no retraining required
+
+Copy the two .m files into your existing ABACUS_EXPERIMENTAL_ML folder,
+replacing the older versions. Do NOT put these files in the engine project.
+
+The runner and predictor now close the database in an inner function before
+an outer function restores the search path. This also applies on errors.
+Training, splitting, models and saved results are unchanged.
+
+To open the completed results folder in MATLAB (same session):
+    winopen(mlRun.Folder)
+Upload SUMMARY.csv and TEST_METRICS.csv for per-target review.
+
+If MATLAB was restarted, use Windows Explorer to open the results folder
+printed by your completed run. Do not repeat training for this warning.
+
+Verification: syntax/lint checked with MISS_HIT. MATLAB runtime is not
+available here; runtime cleanup has not been executed in this environment.
+The original split counts 503/108/109 are approximately 70/15/15 and are
+preserved to keep this fix unrelated to numerical results.
+
+MathWorks explains that cleanup order is not guaranteed for multiple objects:
+https://www.mathworks.com/help/matlab/ref/oncleanup.html

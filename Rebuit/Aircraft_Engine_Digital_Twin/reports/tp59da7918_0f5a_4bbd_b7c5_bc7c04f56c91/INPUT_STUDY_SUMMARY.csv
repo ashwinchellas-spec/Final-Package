@@ -1,0 +1,27 @@
+Engine_ID,Engine,Architecture,SweepAxis,RequestedRows,ValidRows,InvalidRows
+1,J79-GE-17A,Turbojet,Mach,21,21,0
+2,SNECMA Atar 9C,Turbojet,Mach,21,21,0
+3,R-25-300,Turbojet,Mach,21,21,0
+4,CFM56-5B4,Turbofan_HighBPR,Mach,21,10,11
+5,CF6-80C2B1F,Turbofan_HighBPR,Mach,21,10,11
+6,F100-PW-229,Turbofan_LowBPR,Mach,21,19,2
+7,SNECMA M88-2,Turbofan_LowBPR,Mach,21,19,2
+8,GTX-35VS Kaveri,Turbofan_LowBPR,Mach,21,19,2
+9,PT6A-67D,Turboprop,Mach,21,6,15
+10,PW127G,Turboprop,Mach,21,7,14
+11,AE 2100D3,Turboprop,Mach,21,7,14
+12,Lycoming O-360-A1A,Piston,Mach,21,5,16
+13,Continental IO-550-B,Piston,Mach,21,5,16
+1,J79-GE-17A,Turbojet,Throttle,11,10,1
+2,SNECMA Atar 9C,Turbojet,Throttle,11,10,1
+3,R-25-300,Turbojet,Throttle,11,10,1
+4,CFM56-5B4,Turbofan_HighBPR,Throttle,11,7,4
+5,CF6-80C2B1F,Turbofan_HighBPR,Throttle,11,9,2
+6,F100-PW-229,Turbofan_LowBPR,Throttle,11,11,0
+7,SNECMA M88-2,Turbofan_LowBPR,Throttle,11,11,0
+8,GTX-35VS Kaveri,Turbofan_LowBPR,Throttle,11,11,0
+9,PT6A-67D,Turboprop,Throttle,11,10,1
+10,PW127G,Turboprop,Throttle,11,10,1
+11,AE 2100D3,Turboprop,Throttle,11,10,1
+12,Lycoming O-360-A1A,Piston,Throttle,11,11,0
+13,Continental IO-550-B,Piston,Throttle,11,11,0

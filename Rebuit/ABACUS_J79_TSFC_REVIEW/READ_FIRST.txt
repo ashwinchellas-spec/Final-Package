@@ -1,0 +1,49 @@
+J79 TSFC targeted review -- no retraining
+
+1. Extract this ZIP beside your other add-on folders.
+2. Set MATLAB Current Folder to ABACUS_J79_TSFC_REVIEW.
+3. Run:
+       review = RUN_J79_TSFC_REVIEW;
+4. Select experimental_model.mat inside engine_1 of the previous training run.
+   Your previous run folder was:
+   Aircraft_Engine_Digital_Twin/reports/tp7e47faac_5d6d_4dd6_998e_762661399df7
+5. Upload fresh_test_metrics.csv from the new folder printed at completion.
+
+What was found in the uploaded CSV
+720 valid rows: 503 training, 108 validation, 109 previously inspected test.
+All supplied TSFC values agree with fuel flow / thrust to floating precision.
+The original degree-5 polynomial fit was reconstructed in Python/Numpy with
+MATLAB's training-only scaling, sample standard deviation, polynomial basis and
+ridge coefficient. The reproduced old test TSFC error matches the supplied metrics.
+
+Normalized TSFC RMSE (RMSE divided by mean absolute reference):
+                                 Validation       Old test (diagnostic)
+Independent TSFC polynomial      2.928815%         3.346511%
+Predicted fuel / thrust          0.477301%         1.205829%
+
+This improvement is a consistency constraint, not a change to the simulator.
+It predicts thrust and fuel with the original saved models and computes their
+ratio. It does not use true thrust or true fuel to form its predicted TSFC.
+Validation evidence supports this candidate; the old test has now been inspected
+and must not be represented as an untouched final test of the revision.
+
+Fresh test protocol
+The provided script freezes the existing model and the ratio rule, then generates
+600 new random conditions with fixed seed 17092026 inside the saved bounds.
+It reports the original and revised predictor on the same accepted simulator
+points. Rejected simulation points are retained in CSV. Invalid ratio predictions
+on accepted simulator points cause an error, not silent exclusion or a pass.
+No optimization or retraining uses these fresh points. Repeating the script uses
+the SAME fresh-test set; repetitions are not independent experiments.
+If further tuning uses this test result, a new untouched final test will be needed.
+
+The script verifies the saved fingerprint, reads the database, and writes only
+new report files. It never overwrites your trained model or relaxes the production
+validation gate. The derived review MAT is an audit artifact, not a drop-in model
+for PREDICT_EXPERIMENTAL_ML. The existing predictor will still use the original TSFC.
+All other engines are untouched. Manufacturer accuracy remains unverified.
+
+Verification before delivery
+Python reconstruction and numerical CSV analysis were executed.
+The MATLAB script passed MISS_HIT syntax/lint checks.
+MATLAB is unavailable here; the fresh test must execute on your laptop.

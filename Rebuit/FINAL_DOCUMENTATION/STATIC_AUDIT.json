@@ -1,0 +1,14 @@
+{
+  "working_database_upload": "f33a1ce7-6f6e-4445-a427-8adab164f983.db",
+  "database_integrity": "ok",
+  "foreign_key_violations": 0,
+  "numerical_provenance_checks": 218,
+  "numerical_provenance_mismatches": 0,
+  "selected_model_files_present": 13,
+  "matlab_execution_performed_here": false,
+  "modified_original_files": [
+    "Rebuit/ABACUS_GUI_EXPERIMENT/ATTACH_EXPERIMENTAL_ML.m",
+    "Rebuit/Aircraft_Engine_Digital_Twin/RUN_PENDING_STUDIES.m"
+  ],
+  "matlab_smoke_check_required": "LAUNCH_ABACUS('check')"
+}

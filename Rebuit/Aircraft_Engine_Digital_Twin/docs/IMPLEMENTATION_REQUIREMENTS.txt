@@ -1,0 +1,1210 @@
+I am developing a complete academic engineering software project titled:
+
+"Aircraft Engine Performance Analysis, Digital Twin, Machine Learning and Intelligent Engine Selection System"
+
+I am attaching a PDF called the ABACUS specification/blueprint.
+
+IMPORTANT:
+The attached ABACUS PDF is the PRIMARY SPECIFICATION for this project.
+
+You must first carefully read and understand the entire PDF, including:
+- architecture
+- objectives
+- engine types
+- equations
+- database structure
+- digital twin architecture
+- ML methodology
+- mission selection methodology
+- GUI requirements
+- validation requirements
+- limitations
+- implementation phases
+- data/provenance requirements
+- MATLAB/Simulink requirements
+
+Do NOT ignore the PDF and create a generic aircraft-engine project.
+
+The final implementation must follow the terminology, architecture, requirements and scope defined in the PDF.
+
+============================================================
+1. YOUR ROLE
+============================================================
+
+Act as a senior aerospace propulsion engineer + MATLAB/Simulink developer + ML engineer + database architect + software architect + testing engineer.
+
+Your responsibility is to generate the COMPLETE WORKING SOFTWARE PROJECT described in the attached ABACUS PDF.
+
+This is an academic/research software implementation.
+
+The system must be:
+- modular
+- reproducible
+- testable
+- documented
+- physically consistent
+- database connected
+- ML integrated
+- GUI integrated
+- suitable for academic demonstration
+- compatible across all modules
+- structured for GitHub
+- easy to run by another student/faculty member
+
+Do not merely provide sample code.
+
+Generate the actual implementation.
+
+============================================================
+2. VERY IMPORTANT — DO NOT GENERATE A DISCONNECTED CODE DUMP
+============================================================
+
+Do NOT generate hundreds of independent files that are not integrated.
+
+Every file must have a clear purpose and dependency relationship.
+
+All modules must communicate through well-defined interfaces.
+
+Before creating code, internally construct the complete dependency architecture.
+
+The final system must work approximately as:
+
+DATABASE
+   ↓
+ISA ATMOSPHERE
+   ↓
+ENGINE PHYSICS MODELS
+   ↓
+VALIDATION
+   ↓
+DIGITAL TWIN
+   ↓
+PERFORMANCE GRID
+   ↓
+ENGINE COMPARISON
+   ↓
+MISSION SELECTION
+   ↓
+ML DATASET
+   ↓
+ML SURROGATE
+   ↓
+GUI
+   ↓
+REPORTING
+
+============================================================
+3. DEVELOPMENT STRATEGY
+============================================================
+
+Implement the project in these phases:
+
+PHASE 1 — Database + Project Infrastructure
+
+PHASE 2 — ISA Standard Atmosphere
+
+PHASE 3 — Piston Engine Physics Model
+
+PHASE 4 — Turbojet Physics Model
+
+PHASE 5 — Turbofan Physics Model
+
+PHASE 6 — Turboprop Physics Model
+
+PHASE 7 — Physics Validation + Automated Testing
+
+PHASE 8 — Digital Twin Coordinator
+
+PHASE 9 — Engine Performance Grid Generation
+
+PHASE 10 — Engine Comparison + Analysis
+
+PHASE 11 — Mission-Based Engine Selection
+
+PHASE 12 — ML Dataset Generation
+
+PHASE 13 — ML Surrogate Training + Evaluation
+
+PHASE 14 — MATLAB GUI / App
+
+PHASE 15 — Full Integration + Final Testing + Reports
+
+IMPORTANT:
+
+Do not skip phases.
+
+Do not implement Phase 13 ML before the physics models and validation are established.
+
+Do not build the GUI before the backend is functional.
+
+Do not claim a phase is complete merely because the code files were created.
+
+Each phase must have:
+- implementation
+- tests
+- validation
+- documentation
+- integration with previous phases
+
+============================================================
+4. TECHNOLOGY STACK
+============================================================
+
+Use:
+
+MATLAB R2023b or newer
+
+MATLAB:
+- functions
+- structures/tables where appropriate
+- scripts
+- App Designer for GUI
+
+Database:
+- SQLite
+- MATLAB native SQLite interface / Database Toolbox as appropriate
+
+Simulation:
+- MATLAB
+- Simulink where required by the ABACUS specification
+
+Machine Learning:
+- MATLAB Machine Learning / Statistics and Machine Learning Toolbox
+- Deep Learning Toolbox only where genuinely required
+- use reproducible training procedures
+
+Do not introduce unnecessary external dependencies.
+
+Avoid Python unless the PDF explicitly requires it.
+
+============================================================
+5. PROJECT STRUCTURE
+============================================================
+
+Create a professional project structure similar to:
+
+Aircraft_Engine_Digital_Twin/
+
+├── README.md
+├── LICENSE
+├── run_project.m
+├── run_all_tests.m
+├── verify_project.m
+│
+├── database/
+│   ├── engine_analysis.db
+│   ├── schema.sql
+│   ├── seed_data.sql
+│   └── README.md
+│
+├── matlab/
+│   ├── setup/
+│   ├── atmosphere/
+│   ├── engines/
+│   │   ├── piston/
+│   │   ├── turbojet/
+│   │   ├── turbofan/
+│   │   └── turboprop/
+│   ├── validation/
+│   ├── digital_twin/
+│   ├── performance/
+│   ├── comparison/
+│   ├── mission/
+│   ├── ml/
+│   ├── reporting/
+│   └── utilities/
+│
+├── simulink/
+│
+├── gui/
+│
+├── tests/
+│
+├── scripts/
+│
+├── ml_models/
+│
+├── results/
+│
+├── plots/
+│
+├── tables/
+│
+└── reports/
+
+You may modify the exact folder organization if the ABACUS PDF specifies something different.
+
+Do not create duplicate MATLAB functions with the same function name.
+
+============================================================
+6. DATABASE REQUIREMENTS
+============================================================
+
+Implement the database specified by the PDF.
+
+The database should contain the required tables for:
+
+- Manufacturers
+- Engine_Types
+- Engines
+- Engine_Thermo_Params
+- Parameter_Provenance
+- Aircraft
+- Engine_Aircraft_Map
+- Performance_Data
+- Mission_Profiles
+- References
+- Simulation_Log
+
+Also implement required views, indexes, foreign keys and constraints.
+
+SQLite foreign keys must be explicitly enabled.
+
+Database initialization must be reproducible.
+
+Seed data must be reproducible.
+
+Do not silently fabricate technical data.
+
+Every important engine parameter must have provenance where required by the specification.
+
+Clearly distinguish:
+
+Reference
+Simulated
+ML_Predicted
+Simulated_Estimated
+
+or whatever categories are defined in the PDF.
+
+============================================================
+7. ENGINE DATA
+============================================================
+
+Implement the engine set required by the ABACUS specification.
+
+The current intended engine set includes:
+
+Turbojets:
+- J79-GE-17A
+- SNECMA Atar 9C
+- R-25-300
+
+Turbofans:
+- CFM56-5B4
+- CF6-80C2B1F
+- F100-PW-229
+- SNECMA M88-2
+- GTX-35VS Kaveri
+
+Turboprops:
+- PT6A-67D
+- PW127G
+- AE 2100D3
+
+Piston:
+- Lycoming O-360-A1A
+- Continental IO-550-B
+
+If the attached PDF specifies a different final list, FOLLOW THE PDF and explain the difference.
+
+IMPORTANT:
+
+Do not invent measured performance data.
+
+For parameters that are not publicly verified:
+- mark them as estimated/assumed
+- store provenance
+- store confidence
+- clearly document the assumption
+
+Especially for GTX-35VS Kaveri:
+
+DO NOT present estimated values as measured values.
+
+Clearly label Kaveri results as:
+
+"Estimated / Academic Simulation"
+
+unless verified public data exists.
+
+============================================================
+8. ISA ATMOSPHERE
+============================================================
+
+Implement the Standard Atmosphere model specified by the PDF.
+
+The atmosphere module must provide at minimum:
+
+- temperature
+- pressure
+- density
+- speed of sound
+- gravity if required
+- dynamic viscosity if required
+- Mach-related quantities
+
+Use the equations/ranges specified in the ABACUS document.
+
+Make the atmosphere model independently testable.
+
+Include boundary-condition tests.
+
+Include sea-level validation.
+
+Include altitude validation.
+
+Do not silently extrapolate beyond the valid atmosphere range.
+
+============================================================
+9. PISTON ENGINE MODEL
+============================================================
+
+Implement the piston-engine model required by the PDF.
+
+Include the parameters specified in the database.
+
+Where applicable:
+
+- displacement
+- compression ratio
+- RPM
+- strokes
+- volumetric efficiency
+- thermal efficiency
+- fuel consumption
+- power
+- torque
+- altitude effects
+
+Use physically meaningful equations.
+
+Clearly document assumptions.
+
+Do not pretend that the model is a detailed manufacturer engine simulation if it is an academic thermodynamic model.
+
+============================================================
+10. TURBOJET MODEL
+============================================================
+
+Implement the turbojet station model specified in the PDF.
+
+Use the required station numbering consistently.
+
+The model must include, where specified:
+
+0 → 2 → 3 → 4 → 5 → 8
+
+Implement:
+
+- inlet
+- compressor
+- combustor
+- turbine
+- nozzle
+- mass flow
+- pressure ratios
+- temperature ratios
+- turbine work balance
+- exhaust velocity
+- thrust
+- pressure thrust where applicable
+- TSFC
+
+Implement nozzle choking logic where required.
+
+Do not use inconsistent static/stagnation notation.
+
+Clearly distinguish:
+- static quantities
+- stagnation/total quantities
+
+============================================================
+11. TURBOFAN MODEL
+============================================================
+
+Implement the turbofan model specified by the PDF.
+
+Use separate core and bypass flows where required.
+
+Include:
+
+- bypass ratio
+- fan pressure ratio
+- core compressor
+- combustor
+- turbine work balance
+- core nozzle
+- bypass nozzle
+- thrust
+- pressure thrust
+- TSFC
+- fuel flow
+
+Use separate-exhaust architecture for Phase 1 if specified.
+
+Implement nozzle choking and pressure-thrust treatment consistently.
+
+Ensure all thermodynamic equations are internally consistent.
+
+============================================================
+12. TURBOPROP MODEL
+============================================================
+
+Implement the turboprop model required by the PDF.
+
+Include:
+
+- gas generator
+- compressor
+- combustor
+- turbine
+- power turbine
+- gearbox
+- propeller
+- propeller efficiency
+- residual jet thrust
+- equivalent thrust
+- shaft power
+- ESHP or equivalent metric where specified
+- BSFC where appropriate
+
+Do not model a turboprop as simply a turbojet with a multiplier.
+
+Implement the power split correctly.
+
+============================================================
+13. VALIDATION
+============================================================
+
+Create an automated validation framework.
+
+Tests must verify:
+
+- atmosphere
+- piston
+- turbojet
+- turbofan
+- turboprop
+- database integrity
+- unit consistency
+- boundary conditions
+- impossible inputs
+- negative values where forbidden
+- nozzle behavior
+- mass-flow conservation
+- energy/work balance where applicable
+
+Use known/reference values from the attached PDF wherever available.
+
+If the PDF does not provide a validation value, do NOT invent a "validated" result.
+
+Instead label the test appropriately.
+
+The system must report:
+
+PASS
+FAIL
+WARNING
+
+with useful diagnostics.
+
+============================================================
+14. DIGITAL TWIN
+============================================================
+
+Implement the academic Digital Twin architecture described by the PDF.
+
+Use the defined levels:
+
+L1 — Static Physics
+L2 — Altitude Parametric
+L3 — Full Performance Map
+L4 — Database Connected
+L5 — ML Augmented
+
+Do not claim this is a certified real-time aircraft engine digital twin.
+
+Call it an:
+
+"Academic steady-state software Digital Twin"
+
+unless the PDF specifies different terminology.
+
+The Digital Twin coordinator must:
+
+- accept engine selection
+- accept flight condition
+- retrieve engine parameters
+- retrieve atmosphere
+- execute correct engine model
+- return standardized outputs
+- record simulation metadata
+- optionally store results in SQLite
+
+============================================================
+15. PERFORMANCE GRID
+============================================================
+
+Implement the performance grid specified in the PDF.
+
+Use the grid dimensions specified by the ABACUS document.
+
+If the specification requires:
+
+21 altitude points
+× 9 Mach points
+× 6 throttle points
+
+then generate:
+
+1,134 operating points per engine.
+
+Do not generate invalid operating regions blindly.
+
+Include validity flags.
+
+Store:
+
+- altitude
+- Mach
+- throttle
+- thrust/power
+- TSFC/BSFC
+- fuel flow
+- temperatures
+- pressures
+- model type
+- confidence
+- validity
+
+============================================================
+16. ENGINE COMPARISON
+============================================================
+
+Implement engine comparison functions.
+
+The comparison system must allow:
+
+- thrust comparison
+- TSFC comparison
+- fuel flow comparison
+- power comparison
+- altitude comparison
+- Mach comparison
+- throttle comparison
+
+Produce:
+
+- tables
+- plots
+- rankings
+
+Do not compare physically incompatible metrics without explanation.
+
+============================================================
+17. MISSION-BASED ENGINE SELECTION
+============================================================
+
+Implement the mission selection methodology defined in the PDF.
+
+The process must be:
+
+STEP 1:
+Apply hard constraints.
+
+STEP 2:
+Normalize valid candidates.
+
+STEP 3:
+Apply weighted scoring.
+
+STEP 4:
+Rank candidates.
+
+Mission profiles should include those specified by the PDF.
+
+Clearly explain why an engine wins.
+
+Do not allow an engine that violates a hard requirement to win simply because of a high weighted score.
+
+============================================================
+18. MACHINE LEARNING
+============================================================
+
+ML must be trained AFTER the physics models have been validated.
+
+Generate a physics-based dataset.
+
+Clearly label the dataset as:
+
+"Physics-generated synthetic data"
+
+unless real experimental data is actually used.
+
+Train surrogate models for the outputs specified by the PDF.
+
+Possible outputs include:
+
+- thrust
+- TSFC
+- fuel flow
+- power
+- etc.
+
+Implement:
+
+- train/validation/test split
+- preprocessing
+- model training
+- prediction
+- evaluation
+- R²
+- RMSE
+- MAE
+- residual analysis
+- prediction-vs-reference plots
+
+Use reproducible random seeds.
+
+Do not claim R² ≥ 0.99 unless the actual training result achieves it.
+
+If it does not achieve the target:
+- report the real value
+- explain the issue
+- improve the model if reasonable
+- never fabricate results
+
+IMPORTANT:
+
+ML validation against physics-generated data demonstrates approximation of the implemented physics model.
+
+It does NOT prove agreement with real-world engine measurements.
+
+============================================================
+19. GUI
+============================================================
+
+Create a MATLAB App Designer GUI as specified by the PDF.
+
+The GUI should allow the user to:
+
+- select engine
+- select engine type
+- enter altitude
+- enter Mach
+- enter throttle where applicable
+- run simulation
+- view performance outputs
+- compare engines
+- perform mission selection
+- view ML prediction
+- view confidence/provenance information
+- display warnings for estimated data
+- generate plots
+- export results/reports
+
+Use sensible units.
+
+Validate user input.
+
+Do not allow invalid values to crash the application.
+
+The GUI must call backend functions rather than duplicate physics equations.
+
+============================================================
+20. SIMULINK
+============================================================
+
+If Simulink models are required by the PDF, create them.
+
+They must be connected to the same parameter definitions and physics assumptions as the MATLAB implementation.
+
+Avoid having one set of equations in MATLAB and a completely different set in Simulink.
+
+Where practical, use common parameter/configuration functions.
+
+Provide scripts to open/build/run the models.
+
+============================================================
+21. REPORTING
+============================================================
+
+Implement automated report generation where specified.
+
+Reports should include:
+
+- input conditions
+- selected engine
+- model used
+- calculated outputs
+- comparison results
+- mission ranking
+- ML results
+- confidence
+- provenance
+- warnings
+- assumptions
+
+Do not generate fake validation numbers.
+
+============================================================
+22. CODE QUALITY
+============================================================
+
+Every MATLAB function must contain:
+
+- function signature
+- purpose
+- inputs
+- outputs
+- units
+- assumptions
+- references where applicable
+- error handling
+
+Use meaningful variable names.
+
+Avoid magic numbers.
+
+Centralize constants where appropriate.
+
+Do not duplicate equations unnecessarily.
+
+Use SI units internally unless the PDF specifies otherwise.
+
+Clearly document conversions.
+
+============================================================
+23. ERROR HANDLING
+============================================================
+
+The system must detect:
+
+- invalid altitude
+- invalid Mach
+- invalid throttle
+- negative pressure
+- negative temperature
+- impossible pressure ratios
+- invalid efficiency
+- invalid bypass ratio
+- invalid engine ID
+- missing database records
+- missing provenance
+- missing model
+- ML model unavailable
+- unsupported operating region
+
+Return useful error messages.
+
+Do not silently continue with physically meaningless values.
+
+============================================================
+24. TESTING REQUIREMENTS
+============================================================
+
+Create unit tests and integration tests.
+
+At minimum test:
+
+Database
+Atmosphere
+Piston
+Turbojet
+Turbofan
+Turboprop
+Digital Twin
+Performance Grid
+Comparison
+Mission Selection
+ML
+GUI/backend integration
+
+Create:
+
+run_all_tests.m
+
+which executes the complete test suite.
+
+Create:
+
+verify_project.m
+
+which checks the project installation and required files.
+
+============================================================
+25. REPRODUCIBILITY
+============================================================
+
+A fresh user should be able to:
+
+1. unzip the project
+2. open MATLAB
+3. run setup_project
+4. initialize the database
+5. seed the database
+6. run verification
+7. run tests
+8. run the Digital Twin
+9. generate performance data
+10. train/load ML models
+11. open the GUI
+
+Document the exact commands in README.md.
+
+============================================================
+26. NO PLACEHOLDERS
+============================================================
+
+Do NOT use:
+
+TODO
+
+FIXME
+
+IMPLEMENT LATER
+
+PLACEHOLDER
+
+dummy_function
+
+example_function
+
+fake_output
+
+random engine results
+
+hardcoded fake ML accuracy
+
+fake validation results
+
+unless the PDF explicitly requires a placeholder.
+
+If a capability cannot genuinely be implemented, clearly state why and implement the closest valid architecture without pretending it works.
+
+============================================================
+27. NO FABRICATED RESULTS
+============================================================
+
+This is extremely important.
+
+Never write:
+
+"Validation successful"
+
+unless the validation actually runs.
+
+Never write:
+
+"R² = 0.99"
+
+unless the trained model actually produces that result.
+
+Never claim:
+
+"matches manufacturer data"
+
+unless the source supports it.
+
+Never fabricate experimental results.
+
+All generated outputs must be clearly identified as:
+
+Reference
+Simulated
+Estimated
+ML Predicted
+
+as appropriate.
+
+============================================================
+28. DATA PROVENANCE
+============================================================
+
+Maintain provenance for important parameters.
+
+For each parameter, where applicable store:
+
+- parameter name
+- value
+- unit
+- source
+- source type
+- confidence
+- notes
+- whether measured/reference/estimated
+
+Do not present estimated values as authoritative.
+
+============================================================
+29. PHYSICAL MODEL LIMITATIONS
+============================================================
+
+Clearly document that the academic model may not include:
+
+- transient dynamics
+- surge/stall
+- detailed combustion chemistry
+- variable geometry
+- bleed air
+- inlet distortion
+- installation effects
+- detailed aircraft drag
+- atmospheric turbulence
+- hardware-in-the-loop
+- classified/proprietary engine data
+- engine degradation unless explicitly implemented
+
+Do not claim capabilities that are not implemented.
+
+============================================================
+30. IMPORTANT SOFTWARE ARCHITECTURE RULE
+============================================================
+
+Use one authoritative source for each function.
+
+For example, there must NOT be:
+
+project_paths.m
+
+appearing in three different folders.
+
+There must NOT be duplicate:
+
+setup_project.m
+db_seed.m
+db_initialize.m
+
+functions.
+
+MATLAB path conflicts must be prevented.
+
+============================================================
+31. FINAL INTEGRATION
+============================================================
+
+At the end, create:
+
+run_project.m
+
+This should provide a simple entry point to the system.
+
+Also create:
+
+run_all_tests.m
+
+verify_project.m
+
+and appropriate phase-specific test scripts.
+
+The final project must be internally consistent.
+
+Before declaring completion, perform a static dependency audit:
+
+For every function:
+- check that called functions exist
+- check that variables are defined
+- check input/output arguments
+- check folder paths
+- check database table names
+- check database column names
+- check GUI callback references
+- check Simulink references
+- check ML model file references
+
+Also check for:
+- duplicate functions
+- missing files
+- broken paths
+- hardcoded absolute paths
+- inconsistent units
+- inconsistent station numbering
+- database schema mismatches
+
+============================================================
+32. GITHUB READINESS
+============================================================
+
+The project must be suitable for GitHub.
+
+Include:
+
+README.md
+
+LICENSE
+
+.gitignore
+
+clear folder organization
+
+installation instructions
+
+usage instructions
+
+architecture documentation
+
+testing instructions
+
+limitations
+
+data provenance documentation
+
+Do not include unnecessary temporary MATLAB files.
+
+Do not hardcode the developer's computer path.
+
+============================================================
+33. IMPORTANT: GENERATION METHOD
+============================================================
+
+Do NOT rush to produce the final code before understanding the PDF.
+
+First internally analyze the specification and construct the architecture.
+
+Then generate the project.
+
+If the entire project cannot safely be generated in a single response due to output/file limitations, DO NOT abandon the project and DO NOT give me fragmented code pasted into chat.
+
+Instead create the project in a controlled sequence internally while maintaining one consistent architecture and then package the complete project into ONE ZIP.
+
+============================================================
+34. FINAL ZIP
+============================================================
+
+The final deliverable MUST be:
+
+Aircraft_Engine_Digital_Twin_COMPLETE.zip
+
+Inside it should be the complete project.
+
+I want ONE ZIP rather than dozens of separate downloadable files.
+
+The ZIP must contain:
+
+- MATLAB source
+- SQL
+- database
+- tests
+- scripts
+- Simulink models
+- GUI
+- ML code
+- ML models where generated
+- documentation
+- reports/templates
+- README
+- setup scripts
+- verification scripts
+
+============================================================
+35. FINAL VERIFICATION REPORT
+============================================================
+
+Before giving me the ZIP, create:
+
+FINAL_VERIFICATION_REPORT.md
+
+It must list:
+
+PHASE 1 — status
+PHASE 2 — status
+...
+PHASE 15 — status
+
+For each phase report:
+
+- files created
+- dependencies
+- tests included
+- tests actually executed, if execution is available
+- known limitations
+- unresolved issues
+
+Clearly distinguish:
+
+PASS
+WARNING
+NOT EXECUTED
+
+Do not mark something PASS merely because code was generated.
+
+============================================================
+36. CRITICAL REQUIREMENT ABOUT THE PDF
+============================================================
+
+If the ABACUS PDF and general engineering knowledge conflict:
+
+FIRST follow the ABACUS specification.
+
+Do not silently change the specification.
+
+If you identify a genuine technical inconsistency in the PDF:
+- document it
+- explain the issue
+- implement the technically defensible solution
+- record the change in CHANGELOG.md
+
+Do not silently rewrite the architecture.
+
+============================================================
+37. OUTPUT BEHAVIOR
+============================================================
+
+Do NOT flood the chat with hundreds of code blocks.
+
+Do NOT paste the entire codebase into the conversation.
+
+Create the actual project files.
+
+Return ONE ZIP.
+
+After creating the ZIP, give me a concise summary containing:
+
+1. ZIP filename
+2. total number of files
+3. folder structure
+4. phases implemented
+5. tests created
+6. tests actually executed
+7. warnings
+8. known limitations
+9. exact MATLAB command to start the project
+
+============================================================
+38. FINAL QUALITY STANDARD
+============================================================
+
+The final result should look like a professionally organized academic engineering software project, not an AI-generated collection of examples.
+
+The project should be:
+
+- modular
+- physically coherent
+- traceable
+- reproducible
+- testable
+- documented
+- database-driven
+- MATLAB-based
+- Simulink-compatible
+- ML-enabled
+- GUI-enabled
+- GitHub-ready
+
+Most importantly:
+
+DO NOT FABRICATE ENGINE DATA.
+DO NOT FABRICATE VALIDATION.
+DO NOT FABRICATE ML RESULTS.
+DO NOT USE PLACEHOLDER IMPLEMENTATIONS.
+DO NOT CREATE DUPLICATE FUNCTIONS.
+DO NOT BREAK COMPATIBILITY BETWEEN PHASES.
+
+Read the attached ABACUS PDF completely and use it as the authoritative project specification.
+
+Now analyze the PDF, construct the architecture, implement the complete project, test what can actually be executed, package everything into:
+
+Aircraft_Engine_Digital_Twin_COMPLETE.zip
+
+and provide the final verification report.

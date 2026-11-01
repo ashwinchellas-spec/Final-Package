@@ -1,0 +1,20 @@
+Check,Status,Diagnostic
+File: README.md,PASS,Presence check only
+File: LICENSE,PASS,Presence check only
+File: CHANGELOG.md,PASS,Presence check only
+File: database/schema.sql,PASS,Presence check only
+File: database/seed_data.sql,PASS,Presence check only
+File: database/engine_analysis.db,PASS,Presence check only
+File: database/engine_test.db,PASS,Presence check only
+File: gui/EngineAnalyser_v1.m,PASS,Presence check only
+File: run_all_tests.m,PASS,Presence check only
+File: run_project.m,PASS,Presence check only
+File: simulink/build_simulink_models.m,PASS,Presence check only
+MATLAB release,PASS,26.1.0.3312084 (R2026a) Update 4
+License: Database_Toolbox,PASS,License availability is not proof of functional execution.
+License: Statistics_Toolbox,PASS,License availability is not proof of functional execution.
+License: Simulink,PASS,License availability is not proof of functional execution.
+Unique public MATLAB filenames,PASS,102 MATLAB source files
+SQLite integrity,PASS,ok
+SQLite foreign keys,PASS,Read-only foreign_key_check
+Parameter provenance,PASS,Every populated numerical engine parameter checked against its provenance value.

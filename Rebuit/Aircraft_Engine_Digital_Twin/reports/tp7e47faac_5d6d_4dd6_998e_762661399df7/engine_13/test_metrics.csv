@@ -1,0 +1,4 @@
+Target,R2,RMSE,MAE,MAPE_Percent,RelativeRMSE,RelativeMAE,MAPE_Count,MeetsSimulatorCriteriaOnly,Engine_ID,Engine,Family,Label
+ShaftPower_kW,1,4.32061688975362e-07,3.15500427838279e-07,3.16249581765131e-07,4.10156827472563e-09,2.99505042567577e-09,109,1,13,Continental IO-550-B,Poly,EXPERIMENTAL: surrogate of unvalidated simulation; not manufacturer performance.
+FuelFlow_kgs,1,3.31081752866274e-11,2.41762779520697e-11,3.16249580602691e-07,4.10156826062969e-09,2.9950504203239e-09,109,1,13,Continental IO-550-B,Poly,EXPERIMENTAL: surrogate of unvalidated simulation; not manufacturer performance.
+BSFC_kgkWh,NaN,3.87083732358924e-17,2.4954554223226e-17,9.04602590591942e-15,1.4031785298011e-16,9.04602590591943e-17,109,0,13,Continental IO-550-B,Poly,EXPERIMENTAL: surrogate of unvalidated simulation; not manufacturer performance.

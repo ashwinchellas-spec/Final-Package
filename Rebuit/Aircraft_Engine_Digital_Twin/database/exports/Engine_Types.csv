@@ -1,0 +1,6 @@
+Type_ID,Type_Name,Phase,Description
+1,Turbojet,1,Turbojet
+2,Turbofan_HighBPR,1,Turbofan_HighBPR
+3,Turbofan_LowBPR,1,Turbofan_LowBPR
+4,Turboprop,1,Turboprop
+5,Piston,2,Optional user-requested extension outside ABACUS 11-engine core
